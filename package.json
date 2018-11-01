@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Mrlgm/voir-UI/issues"
   },
-  "homepage": "https://github.com/Mrlgm/voir-UI#readme"
+  "homepage": "https://github.com/Mrlgm/voir-UI#readme",
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
 }
