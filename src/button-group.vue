@@ -6,7 +6,14 @@
 
 <script>
     export default {
-        name: "button-group"
+        mounted(){
+           for(let node of this.$el.children){
+               let name = node.nodeName.toLowerCase()
+               if(name !== 'button'){
+                   console.warn(`vi-button-group 的子元素应该全是 vi-button，但你写的是${name}`)
+               }
+           }
+        }
     }
 </script>
 
