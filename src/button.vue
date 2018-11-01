@@ -1,6 +1,7 @@
 <template>
     <button class="vi-button" :class="{[`icon-${iconPosition}`]:true}">
         <vi-icon class="icon" v-if="icon" :name="icon"></vi-icon>
+        <vi-icon class="loading" name="loading"></vi-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -25,6 +26,10 @@
 </script>
 
 <style lang="scss" scoped>
+    @keyframes spin {
+        0%{transform: rotate(0deg)}
+        100%{transform: rotate(360deg)}
+    }
     .vi-button {
         font-style: var(--font-size);
         height: var(--button--height);
@@ -62,6 +67,9 @@
                 order: 1;
             }
 
+        }
+        .loading{
+            animation: spin 2s infinite linear;
         }
     }
 </style>
