@@ -36,13 +36,13 @@
 </head>
 <body>
 <div id="app">
-    <vi-button>
+    <vi-button :loading="loading1" @click="loading1 = !loading1">
         按钮
     </vi-button>
-    <vi-button icon="settings">
+    <vi-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
         按钮
     </vi-button>
-    <vi-button icon="settings" icon-position="right">
+    <vi-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
         按钮
     </vi-button>
 </div>

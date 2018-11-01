@@ -6,5 +6,10 @@ Vue.component('vi-button', Button)
 Vue.component('vi-icon', Icon)
 
 new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        loading1: true,
+        loading2: true,
+        loading3: true
+    }
 })

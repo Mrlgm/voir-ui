@@ -1,7 +1,7 @@
 <template>
-    <button class="vi-button" :class="{[`icon-${iconPosition}`]:true}">
-        <vi-icon class="icon" v-if="icon" :name="icon"></vi-icon>
-        <vi-icon class="loading" name="loading"></vi-icon>
+    <button class="vi-button" :class="{[`icon-${iconPosition}`]:true}" @click="$emit('click')">
+        <vi-icon class="icon" v-if="icon&&!loading" :name="icon"></vi-icon>
+        <vi-icon class="loading icon" v-if="loading" name="loading"></vi-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -9,10 +9,13 @@
 </template>
 
 <script>
-
     export default {
         props: {
             icon: {},
+            loading:{
+                type:Boolean,
+                default: false
+            },
             iconPosition: {
                 type: String,
                 default: 'left',
@@ -21,7 +24,13 @@
                     return value === 'left' || value === 'right'
                 }
             }
+        },
+        methods:{
+            x(){
+
+            }
         }
+
     }
 </script>
 
