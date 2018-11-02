@@ -9,11 +9,16 @@
 </template>
 
 <script>
+    import Icon from './icon'
+
     export default {
+        components: {
+            'vi-icon': Icon
+        },
         props: {
             icon: {},
-            loading:{
-                type:Boolean,
+            loading: {
+                type: Boolean,
                 default: false
             },
             iconPosition: {
@@ -24,21 +29,20 @@
                     return value === 'left' || value === 'right'
                 }
             }
-        },
-        methods:{
-            x(){
-
-            }
         }
-
     }
 </script>
 
 <style lang="scss" scoped>
     @keyframes spin {
-        0%{transform: rotate(0deg)}
-        100%{transform: rotate(360deg)}
+        0% {
+            transform: rotate(0deg)
+        }
+        100% {
+            transform: rotate(360deg)
+        }
     }
+
     .vi-button {
         font-style: var(--font-size);
         height: var(--button--height);
@@ -77,7 +81,7 @@
             }
 
         }
-        .loading{
+        .loading {
             animation: spin 2s infinite linear;
         }
     }
