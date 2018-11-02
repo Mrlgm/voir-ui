@@ -1,5 +1,5 @@
 # voir-UI,一个vue UI组件
-作者：我
+作者：Mrlgm
 
 
 ## 安装
