@@ -38,6 +38,9 @@
     <vi-button :loading="loading1" @click="loading1 = !loading1">
         按钮
     </vi-button>
+    <vi-button :is-ripple="true">
+        按钮
+    </vi-button>
     <vi-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
         按钮
     </vi-button>
@@ -46,7 +49,7 @@
     </vi-button>
     <vi-button-group>
         <vi-button icon="left">上一页</vi-button>
-        <vi-button>更多</vi-button>
+        <vi-button :is-ripple="true">更多</vi-button>
         <vi-button icon="right" icon-position="right">下一页</vi-button>
     </vi-button-group>
 
