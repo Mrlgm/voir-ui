@@ -13,6 +13,7 @@
     import Icon from './icon'
 
     export default {
+        name:'ViButton',
         components: {
             'vi-icon': Icon
         },
