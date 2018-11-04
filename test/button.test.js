@@ -35,6 +35,16 @@ describe('Button', () => {
         expect(useElements[0].getAttribute('xlink:href')).to.equal('#i-loading')
         vm.$destroy()
     })
+    it('可以设置ripple.', () => {
+        const Constructor = Vue.extend(Button)
+        const vm = new Constructor({
+            propsData: {
+                isRipple: true
+            }
+        }).$mount()
+        expect(vm.$el.classList.contains('ripple')).to.equal(true)
+        vm.$destroy()
+    })
     it('icon 默认的 order 是 1', () => {
         const div = document.createElement('div')
         document.body.appendChild(div)
