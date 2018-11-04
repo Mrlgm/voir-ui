@@ -37,25 +37,36 @@
 </head>
 <body>
 <div id="app">
-    <vi-row>
-        <vi-col>1</vi-col>
-        <vi-col>2</vi-col>
-    </vi-row>
-    <vi-row>
-        <vi-col>1</vi-col>
-        <vi-col>2</vi-col>
-        <vi-col>3</vi-col>
-    </vi-row>
-    <vi-row>
-        <vi-col>1</vi-col>
-        <vi-col>2</vi-col>
-        <vi-col>3</vi-col>
-        <vi-col>4</vi-col>
-    </vi-row>
-    <vi-row>
-        <vi-col span="2">12</vi-col>
-        <vi-col span="22">22</vi-col>
-    </vi-row>
+    <div style="border: 1px solid black;">
+        <vi-row gutter="20">
+            <vi-col>1</vi-col>
+            <vi-col>2</vi-col>
+        </vi-row>
+        <vi-row gutter="20">
+            <vi-col>1</vi-col>
+            <vi-col>2</vi-col>
+            <vi-col>3</vi-col>
+        </vi-row>
+        <vi-row gutter="20">
+            <vi-col>1</vi-col>
+            <vi-col>2</vi-col>
+            <vi-col>3</vi-col>
+            <vi-col>4</vi-col>
+        </vi-row>
+        <vi-row gutter="20">
+            <vi-col span="2">12</vi-col>
+            <vi-col span="22">22</vi-col>
+        </vi-row>
+        <vi-row>
+            <vi-col span="2">12</vi-col>
+            <vi-col span="20" offset="2">22</vi-col>
+        </vi-row>
+        <vi-row gutter="20">
+            <vi-col span="2">12</vi-col>
+            <vi-col span="2">22</vi-col>
+            <vi-col span="20">22</vi-col>
+        </vi-row>
+    </div>
     <div class="box">
         <vi-input value="张三"></vi-input>
     </div>
@@ -72,9 +83,9 @@
         <vi-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
             按钮
         </vi-button>
-        <vi-button-group>
+        <vi-button-group all-ripple>
             <vi-button icon="left">上一页</vi-button>
-            <vi-button :is-ripple="true">更多</vi-button>
+            <vi-button>更多</vi-button>
             <vi-button icon="right" icon-position="right">下一页</vi-button>
         </vi-button-group>
     </div>

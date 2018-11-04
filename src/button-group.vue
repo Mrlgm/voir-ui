@@ -7,6 +7,12 @@
 <script>
     export default {
         name:'ViButtonGroup',
+        props:{
+            allRipple:{
+                type:Boolean,
+                default:false
+            }
+        },
         mounted(){
            for(let node of this.$el.children){
                let name = node.nodeName.toLowerCase()
@@ -14,6 +20,9 @@
                    console.warn(`vi-button-group 的子元素应该全是 vi-button，但你写的是${name}`)
                }
            }
+           this.$children.forEach((vm)=>{
+               vm.allRipple = this.allRipple
+           })
         }
     }
 </script>

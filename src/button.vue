@@ -1,5 +1,5 @@
 <template>
-    <button class="vi-button" :class="{[`icon-${iconPosition}`]:true,'ripple':isRipple}"
+    <button class="vi-button" :class="{[`icon-${iconPosition}`]:true,'ripple':isRipple || allRipple}"
             @click="$emit('click')">
         <vi-icon class="icon" v-if="icon&&!loading" :name="icon"></vi-icon>
         <vi-icon class="loading icon" v-if="loading" name="loading"></vi-icon>
@@ -16,6 +16,11 @@
         name:'ViButton',
         components: {
             'vi-icon': Icon
+        },
+        data(){
+            return{
+                allRipple: false
+            }
         },
         props: {
             icon: {},
