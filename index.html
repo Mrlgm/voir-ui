@@ -30,17 +30,34 @@
         }
     </style>
     <style>
-.box{
-    margin: 20px;
-}
+        .box {
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
 <div id="app">
+    <vi-row>
+        <vi-col>1</vi-col>
+        <vi-col>2</vi-col>
+    </vi-row>
+    <vi-row>
+        <vi-col>1</vi-col>
+        <vi-col>2</vi-col>
+        <vi-col>3</vi-col>
+    </vi-row>
+    <vi-row>
+        <vi-col>1</vi-col>
+        <vi-col>2</vi-col>
+        <vi-col>3</vi-col>
+        <vi-col>4</vi-col>
+    </vi-row>
+    <vi-row>
+        <vi-col span="2">12</vi-col>
+        <vi-col span="22">22</vi-col>
+    </vi-row>
     <div class="box">
-        <vi-input value="张三" v-model="message"></vi-input>
-        <button @click="message+=1">+1</button>
-        <p>{{message}}</p>
+        <vi-input value="张三"></vi-input>
     </div>
     <div style="margin: 20px;">
         <vi-button :loading="loading1" @click="loading1 = !loading1">

@@ -1,13 +1,13 @@
 {
   "name": "voir-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "一个基于vue的UI框架",
   "main": "dist/index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
     "start": "parcel ./index.html --no-cache",
-    "build": "parcel build index.js --no-minify"
+    "build": "parcel build index.js --no-cache --no-minify"
   },
   "repository": {
     "type": "git",
