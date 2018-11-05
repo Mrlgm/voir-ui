@@ -77,9 +77,7 @@
                 top: 0;
                 left: 0;
                 pointer-events: none;
-                background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
-                background-repeat: no-repeat;
-                background-position: 50%;
+                background: radial-gradient(circle, #666 10%, transparent 10.01%) no-repeat 50%;
                 transform: scale(10, 10);
                 opacity: 0;
                 transition: transform .3s, opacity .5s;
