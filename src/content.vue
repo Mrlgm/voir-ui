@@ -6,10 +6,12 @@
 
 <script>
     export default {
-        name: "content"
+        name:'ViContent'
     }
 </script>
 
 <style scoped>
-
+.content{
+    flex-grow: 1;
+}
 </style>

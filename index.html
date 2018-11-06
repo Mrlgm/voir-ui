@@ -22,70 +22,41 @@
             --border-color-hover: #666;
         }
 
-        #app {
-            margin: 20px;
-        }
-
         body {
             font-size: var(--font-size);
         }
     </style>
     <style>
-        .box {
-            margin: 20px;
-        }
-    </style>
-    <style>
-        .demo{
-            background: #ddd;
-            border:1px solid #666;
+        .demo {
+            border: 1px solid #666;
             height: 100px;
+        }
+        .sider{
+            background-color: #333;
+            width: 200px;
+        }
+        .header{
+            background-color: #999;
+            height: 100px;
+        }
+        .footer{
+            background-color: #ccc;
+            height: 50px;
         }
     </style>
 </head>
 <body>
 <div id="app">
-    <div style="border: 1px solid black;">
-       <vi-row>
-           <vi-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
-               <div class="demo"></div>
-           </vi-col>
-           <vi-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
-               <div class="demo"></div>
-           </vi-col>
-           <vi-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
-               <div class="demo"></div>
-           </vi-col>
-           <vi-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
-               <div class="demo"></div>
-           </vi-col>
-           <vi-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
-               <div class="demo"></div>
-           </vi-col>
-       </vi-row>
-    </div>
-    <div class="box">
-        <vi-input value="张三"></vi-input>
-    </div>
-    <div style="margin: 20px;">
-        <vi-button :loading="loading1" @click="loading1 = !loading1">
-            按钮
-        </vi-button>
-        <vi-button is-ripple>
-            按钮
-        </vi-button>
-        <vi-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
-            按钮
-        </vi-button>
-        <vi-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
-            按钮
-        </vi-button>
-        <vi-button-group all-ripple>
-            <vi-button icon="left">上一页</vi-button>
-            <vi-button>更多</vi-button>
-            <vi-button icon="right" icon-position="right">下一页</vi-button>
-        </vi-button-group>
-    </div>
+    <vi-layout style="height: 100vh;">
+        <vi-sider>sider</vi-sider>
+
+        <vi-layout>
+            <vi-header>header</vi-header>
+            <vi-content>content</vi-content>
+            <vi-footer>footer</vi-footer>
+        </vi-layout>
+
+    </vi-layout>
 </div>
 <script src="./src/app.js"></script>
 </body>
