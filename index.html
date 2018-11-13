@@ -26,37 +26,10 @@
             font-size: var(--font-size);
         }
     </style>
-    <style>
-        .demo {
-            border: 1px solid #666;
-            height: 100px;
-        }
-        .sider{
-            background-color: #333;
-            width: 200px;
-        }
-        .header{
-            background-color: #999;
-            height: 100px;
-        }
-        .footer{
-            background-color: #ccc;
-            height: 50px;
-        }
-    </style>
 </head>
 <body>
 <div id="app">
-    <vi-layout style="height: 100vh;">
-        <vi-sider>sider</vi-sider>
-
-        <vi-layout>
-            <vi-header>header</vi-header>
-            <vi-content>content</vi-content>
-            <vi-footer>footer</vi-footer>
-        </vi-layout>
-
-    </vi-layout>
+   <vi-button is-ripple @click="showToast">按钮</vi-button>
 </div>
 <script src="./src/app.js"></script>
 </body>
