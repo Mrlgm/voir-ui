@@ -37,7 +37,10 @@ new Vue({
         message: 'hi'
     },
     created() {
-        this.$toast('我是 message')
+        this.$toast('我是 message', {
+            position: 'middle',
+            autoCloseDelay: 50
+        })
     },
     methods: {
         showToast() {
