@@ -12,7 +12,7 @@ describe('Row', () => {
     it('存在.', () => {
         expect(Row).to.exist
     })
-    it('接收 gutter 属性', () => {
+    it('接收 gutter 属性', (done) => {
         Vue.component('vi-row', Row)
         Vue.component('vi-col', Col)
         const div = document.createElement('div')
