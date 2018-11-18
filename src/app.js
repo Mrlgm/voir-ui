@@ -12,6 +12,11 @@ import Footer from './footer'
 import Sider from './sider'
 import Toast from './toast'
 import Plugin from './plugin'
+import Tabs from './tabs'
+import TabsNav from './tabs-nav'
+import TabsItem from './tabs-item'
+import TabsContent from './tabs-content'
+import TabsPane from './tabs-pane'
 
 Vue.component('vi-button', Button)
 Vue.component('vi-icon', Icon)
@@ -26,6 +31,11 @@ Vue.component('vi-footer', Footer)
 Vue.component('vi-sider', Sider)
 Vue.component('vi-toast', Toast)
 Vue.use(Plugin)
+Vue.component('vi-tabs', Tabs)
+Vue.component('vi-tabs-nav', TabsNav)
+Vue.component('vi-tabs-item', TabsItem)
+Vue.component('vi-tabs-content', TabsContent)
+Vue.component('vi-tabs-pane', TabsPane)
 
 
 new Vue({
@@ -44,17 +54,17 @@ new Vue({
     },
     methods: {
         showToast1() {
-            this.$toast('我是 message',{
+            this.$toast('我是 message', {
                 position: 'top'
             })
         },
         showToast2() {
-            this.$toast('我是 message',{
+            this.$toast('我是 message', {
                 position: 'middle'
             })
         },
         showToast3() {
-            this.$toast('我是 message',{
+            this.$toast('我是 message', {
                 position: 'bottom'
             })
         }
