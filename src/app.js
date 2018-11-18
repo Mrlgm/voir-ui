@@ -41,32 +41,6 @@ Vue.component('vi-tabs-pane', TabsPane)
 new Vue({
     el: '#app',
     data: {
-        loading1: true,
-        loading2: true,
-        loading3: true,
-        message: 'hi'
-    },
-    created() {
-        this.$toast('我是 message', {
-            position: 'middle',
-            autoCloseDelay: 50
-        })
-    },
-    methods: {
-        showToast1() {
-            this.$toast('我是 message', {
-                position: 'top'
-            })
-        },
-        showToast2() {
-            this.$toast('我是 message', {
-                position: 'middle'
-            })
-        },
-        showToast3() {
-            this.$toast('我是 message', {
-                position: 'bottom'
-            })
-        }
+        selectedTab:'girl'
     }
 })

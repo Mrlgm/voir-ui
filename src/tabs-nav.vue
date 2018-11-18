@@ -1,6 +1,7 @@
 <template>
     <div class="tabs-nav">
         <slot></slot>
+        <slot name="actions"></slot>
     </div>
 </template>
 

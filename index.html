@@ -29,9 +29,24 @@
 </head>
 <body>
 <div id="app">
-   <vi-button is-ripple @click="showToast1">按钮</vi-button>
-    <vi-button is-ripple @click="showToast2">按钮</vi-button>
-    <vi-button is-ripple @click="showToast3">按钮</vi-button>
+    <vi-tabs :selected.sync="selectedTab" >
+        <vi-tabs-nav>
+            <vi-tabs-item name="girl">
+                美女
+            </vi-tabs-item>
+            <vi-tabs-item name="finance" disabled>
+                财经
+            </vi-tabs-item>
+        </vi-tabs-nav>
+        <vi-tabs-content>
+            <vi-tabs-pane name="girl">
+                美女资讯
+            </vi-tabs-pane>
+            <vi-tabs-pane name="finance">
+                财经资讯
+            </vi-tabs-pane>
+        </vi-tabs-content>
+    </vi-tabs>
 </div>
 <script src="./src/app.js"></script>
 </body>
