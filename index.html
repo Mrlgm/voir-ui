@@ -29,8 +29,11 @@
 </head>
 <body>
 <div id="app">
-    <vi-tabs :selected.sync="selectedTab" >
+    <vi-tabs :selected.sync="selectedTab">
         <vi-tabs-nav>
+            <template slot="actions">
+                <button>hhh</button>
+            </template>
             <vi-tabs-item name="girl">
                 美女
             </vi-tabs-item>
