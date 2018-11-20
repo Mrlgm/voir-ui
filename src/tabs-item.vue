@@ -47,7 +47,6 @@
     .tabs-item {
         $blue: #409EFF;
         flex-shrink: 0;
-        border: 1px solid red;
         padding: 0 2em;
         height: 100%;
         display: flex;
