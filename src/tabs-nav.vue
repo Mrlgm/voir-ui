@@ -15,7 +15,9 @@
         inject: ['eventBus'],
         created() {
             this.eventBus.$on('update:selected', (item, vm) => {
-
+                let {width, height, top, left} = vm.$el.getBoundingClientRect()
+                this.$refs.line.style.width = `${width}px`
+                this.$refs.line.style.left = `${left}px`
             })
         }
     }
@@ -28,13 +30,12 @@
         display: flex;
         justify-content: flex-start;
         height: $tab-height;
-        border: 1px solid red;
         position: relative;
         > .line {
             position: absolute;
             bottom: 0;
-            border-bottom: 1px solid $blue;
-            width: 100px;
+            border-bottom: 2px solid $blue;
+            transition: all 350ms;
         }
         > .actions {
             margin-left: auto;

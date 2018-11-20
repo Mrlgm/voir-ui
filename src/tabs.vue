@@ -36,9 +36,9 @@
             //this.$emit('update:selected', 'xxx')
             this.$children.forEach((vm) => {
                 if (vm.$options.name === 'ViTabsNav') {
-                    vm.$children.forEach((item) => {
-                        if (item.$options.name === 'ViTabsItem' && item.name === this.selected) {
-                            this.eventBus.$emit('updated:selected', this.selected, item)
+                    vm.$children.forEach((childVm) => {
+                        if (childVm.$options.name === 'ViTabsItem' && childVm.name === this.selected) {
+                            this.eventBus.$emit('update:selected', this.selected, childVm)
                         }
                     })
                 }
