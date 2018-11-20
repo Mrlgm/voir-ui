@@ -20,7 +20,7 @@
     .tabs-nav {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+
         height: $tab-height;
         border: 1px solid red;
         > .actions {
