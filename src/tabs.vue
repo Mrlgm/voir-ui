@@ -33,7 +33,9 @@
             }
         },
         mounted() {
-            //this.$emit('update:selected', 'xxx')
+            if (this.$children.length === 0){
+                console.warn('tabs的子组件是 tabs-nav 和 tabs-content，请添加子组件')
+            }
             this.$children.forEach((vm) => {
                 if (vm.$options.name === 'ViTabsNav') {
                     vm.$children.forEach((childVm) => {
