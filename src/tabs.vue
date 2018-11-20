@@ -34,7 +34,16 @@
         },
         mounted() {
             //this.$emit('update:selected', 'xxx')
-            this.eventBus.$emit('updated:selected', this.selected)
+            this.$children.forEach((vm) => {
+                if (vm.$options.name === 'ViTabsNav') {
+                    vm.$children.forEach((item) => {
+                        if (item.$options.name === 'ViTabsItem' && item.name === this.selected) {
+                            this.eventBus.$emit('updated:selected', this.selected, item)
+                        }
+                    })
+                }
+            })
+
         }
     }
 </script>
