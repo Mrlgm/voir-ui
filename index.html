@@ -25,37 +25,26 @@
         body {
             font-size: var(--font-size);
         }
+        #app{
+            margin-top: 100px;
+            margin-left: 100px;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <vi-tabs :selected.sync="selectedTab">
-        <vi-tabs-nav>
-            <template slot="actions">
-                <button>hhh</button>
-            </template>
-            <vi-tabs-item name="girl">
-                <vi-icon name="settings"></vi-icon>美女
-            </vi-tabs-item>
-            <vi-tabs-item name="finance" disabled>
-                财经
-            </vi-tabs-item>
-            <vi-tabs-item name="money">
-                金钱
-            </vi-tabs-item>
-        </vi-tabs-nav>
-        <vi-tabs-content>
-            <vi-tabs-pane name="girl">
-                美女资讯
-            </vi-tabs-pane>
-            <vi-tabs-pane name="finance">
-                财经资讯
-            </vi-tabs-pane>
-            <vi-tabs-pane name="money">
-                金钱资讯
-            </vi-tabs-pane>
-        </vi-tabs-content>
-    </vi-tabs>
+    <vi-popover>
+        <template slot="content">
+            <div>popover内容</div>
+        </template>
+        <button>点我</button>
+    </vi-popover>
+    <vi-popover>
+        <template slot="content">
+            <div>popover内容</div>
+        </template>
+        <button>点我</button>
+    </vi-popover>
 </div>
 <script src="./src/app.js"></script>
 </body>
