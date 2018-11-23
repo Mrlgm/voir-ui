@@ -1,5 +1,5 @@
 <template>
-    <div class="popover" @click.stop="xxx">
+    <div class="popover" @click="onClick" ref="popover">
         <div ref="content" class="content-wrapper" v-if="visible">
             <slot name="content"></slot>
         </div>
@@ -18,20 +18,39 @@
             }
         },
         methods: {
-            xxx() {
-                this.visible = !this.visible
-                if (this.visible === true) {
-                    this.$nextTick(() => {
-                        document.body.appendChild(this.$refs.content)
-                        let {top, right, bottom, left} = this.$refs.trigger.getBoundingClientRect()
-                        this.$refs.content.style.left = left + window.scrollX + 'px'
-                        this.$refs.content.style.top = top + window.scrollY + 'px'
-                        let eventHandler = () => {
-                            this.visible = false
-                            document.removeEventListener('click', eventHandler)
-                        }
-                        document.addEventListener('click', eventHandler)
-                    })
+            positionContent() {
+                document.body.appendChild(this.$refs.content)
+                let {top, right, bottom, left} = this.$refs.trigger.getBoundingClientRect()
+                this.$refs.content.style.left = left + window.scrollX + 'px'
+                this.$refs.content.style.top = top + window.scrollY + 'px'
+            },
+            onClickDocument(e) {
+                if (!this.$refs.content.contains(e.target)) {
+                    this.close()
+                    console.log('关闭')
+
+                }
+            },
+            open() {
+                this.visible = true
+                this.$nextTick(() => {
+                    this.positionContent()
+                    document.addEventListener('click', this.onClickDocument)
+                })
+            },
+            close() {
+                this.visible = false
+                document.removeEventListener('click', this.onClickDocument)
+            },
+            onClick(event) {
+                if (this.$refs.trigger.contains(event.target)) {
+
+                    if (this.visible === true) {
+                        this.close()
+                    } else {
+                        this.open()
+                    }
+
                 }
             }
         },
