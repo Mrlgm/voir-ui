@@ -25,10 +25,18 @@
                 this.$refs.content.style.top = top + window.scrollY + 'px'
             },
             onClickDocument(e) {
+<<<<<<< HEAD
                 if (this.$refs.content.contains(e.target)) {
                     return;
                 }
                 this.close()
+=======
+                if (!this.$refs.content.contains(e.target)) {
+                    this.close()
+                    console.log('关闭')
+
+                }
+>>>>>>> 5ee3ef09aafa75219b3c3b4fe7e78f4778ed8ec4
             },
             open() {
                 this.visible = true
@@ -43,11 +51,19 @@
             },
             onClick(event) {
                 if (this.$refs.trigger.contains(event.target)) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ee3ef09aafa75219b3c3b4fe7e78f4778ed8ec4
                     if (this.visible === true) {
                         this.close()
                     } else {
                         this.open()
                     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ee3ef09aafa75219b3c3b4fe7e78f4778ed8ec4
                 }
             }
         },
