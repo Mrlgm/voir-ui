@@ -26,7 +26,6 @@
             },
             onClickDocument(e) {
                 if (this.$refs.content.contains(e.target)) {
-                    console.log('不管')
                     return;
                 }
                 this.close()
