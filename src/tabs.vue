@@ -32,20 +32,27 @@
                 eventBus: this.eventBus
             }
         },
-        mounted() {
-            if (this.$children.length === 0){
-                console.warn('tabs的子组件是 tabs-nav 和 tabs-content，请添加子组件')
-            }
-            this.$children.forEach((vm) => {
-                if (vm.$options.name === 'ViTabsNav') {
-                    vm.$children.forEach((childVm) => {
-                        if (childVm.$options.name === 'ViTabsItem' && childVm.name === this.selected) {
-                            this.eventBus.$emit('update:selected', this.selected, childVm)
-                        }
-                    })
+        methods: {
+            checkChildren() {
+                if (this.$children.length === 0) {
+                    console && console.warn && console.warn('tabs的子组件是 tabs-nav 和 tabs-content，请添加子组件')
                 }
-            })
-
+            },
+            selectTab(){
+                this.$children.forEach((vm) => {
+                    if (vm.$options.name === 'ViTabsNav') {
+                        vm.$children.forEach((childVm) => {
+                            if (childVm.$options.name === 'ViTabsItem' && childVm.name === this.selected) {
+                                this.eventBus.$emit('update:selected', this.selected, childVm)
+                            }
+                        })
+                    }
+                })
+            }
+        },
+        mounted() {
+            this.checkChildren()
+            this.selectTab()
         }
     }
 </script>
