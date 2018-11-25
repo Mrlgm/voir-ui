@@ -2,7 +2,7 @@
     <div class="popover" ref="popover">
         <div ref="content" class="content-wrapper" v-if="visible"
              :class=`position-${position}`>
-            <slot name="content"></slot>
+            <slot name="content" :close="close"></slot>
         </div>
         <span ref="trigger" style="display:inline-block;">
              <slot></slot>
@@ -13,6 +13,22 @@
 <script>
     export default {
         name: "ViPopover",
+        props: {
+            position: {
+                type: String,
+                default: 'top',
+                validator(value) {
+                    return ['top', 'right', 'bottom', 'left'].indexOf(value) >= 0
+                }
+            },
+            trigger: {
+                type: String,
+                default: 'click',
+                validator(value) {
+                    return ['click', 'hover'].indexOf(value) >= 0
+                }
+            }
+        },
         data() {
             return {
                 visible: false,
@@ -35,22 +51,7 @@
                 this.$refs.popover.removeEventListener('mouseleave', this.close)
             }
         },
-        props: {
-            position: {
-                type: String,
-                default: 'top',
-                validator(value) {
-                    return ['top', 'right', 'bottom', 'left'].indexOf(value) >= 0
-                }
-            },
-            trigger: {
-                type: String,
-                default: 'click',
-                validator(value) {
-                    return ['click', 'hover'].indexOf(value) >= 0
-                }
-            }
-        },
+
         methods: {
             positionContent() {
                 document.body.appendChild(this.$refs.content)
