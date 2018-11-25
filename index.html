@@ -63,19 +63,19 @@
         </template>
         <vi-button>点我</vi-button>
     </vi-popover>
-    <vi-popover>
+    <vi-popover trigger="hover">
+        <template slot="content">
+            <div>popover内容</div>
+        </template>
+        <vi-button>点我</vi-button>
+    </vi-popover >
+    <vi-popover trigger="hover" position="right">
         <template slot="content">
             <div>popover内容</div>
         </template>
         <vi-button>点我</vi-button>
     </vi-popover>
-    <vi-popover position="right">
-        <template slot="content">
-            <div>popover内容</div>
-        </template>
-        <vi-button>点我</vi-button>
-    </vi-popover>
-    <vi-popover position="left">
+    <vi-popover trigger="hover" position="left">
         <template slot="content">
             <div>popover内容</div>
         </template>
