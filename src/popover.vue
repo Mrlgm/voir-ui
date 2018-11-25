@@ -32,19 +32,26 @@
                 document.body.appendChild(this.$refs.content)
                 let contentHeight = this.$refs.content.getBoundingClientRect().height
                 let {width, height, top, right, bottom, left} = this.$refs.trigger.getBoundingClientRect()
-                if (this.position === 'top') {
-                    this.$refs.content.style.left = left + window.scrollX + 'px'
-                    this.$refs.content.style.top = top + window.scrollY + 'px'
-                } else if (this.position === 'bottom') {
-                    this.$refs.content.style.left = left + window.scrollX + 'px'
-                    this.$refs.content.style.top = bottom + window.scrollY + 'px'
-                } else if (this.position === 'right') {
-                    this.$refs.content.style.left = right + window.scrollX + 'px'
-                    this.$refs.content.style.top = top + (height - contentHeight) / 2 + window.scrollY + 'px'
-                } else if (this.position === 'left') {
-                    this.$refs.content.style.left = left + window.scrollX + 'px'
-                    this.$refs.content.style.top = top + window.scrollY + (height - contentHeight) / 2 + 'px'
+                let positions = {
+                    top: {
+                        left: left + window.scrollX + 'px',
+                        top: top + window.scrollY + 'px'
+                    },
+                    bottom: {
+                        left: left + window.scrollX + 'px',
+                        top: bottom + window.scrollY + 'px'
+                    },
+                    left: {
+                        left: left + window.scrollX + 'px',
+                        top: top + (height - contentHeight) / 2 + window.scrollY + 'px'
+                    },
+                    right: {
+                        left: right + window.scrollX + 'px',
+                        top: top + window.scrollY + (height - contentHeight) / 2 + 'px'
+                    }
                 }
+                this.$refs.content.style.left = positions[this.position].left
+                this.$refs.content.style.top = positions[this.position].top
             },
             onClickDocument(e) {
                 if (this.$refs.content.contains(e.target)) {
