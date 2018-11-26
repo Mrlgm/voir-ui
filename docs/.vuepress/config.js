@@ -1,4 +1,5 @@
 module.exports = {
+    base:'/voir-UI/',
     title: 'voir-ui',
     description: '一个好用的UI框架',
     themeConfig: {
