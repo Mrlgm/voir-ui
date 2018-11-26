@@ -3,7 +3,7 @@
             @click="$emit('click')">
         <vi-icon class="icon" v-if="icon&&!loading" :name="icon"></vi-icon>
         <vi-icon class="loading icon" v-if="loading" name="loading"></vi-icon>
-        <div class="content">
+        <div class="vi-button-content">
             <slot></slot>
         </div>
     </button>
@@ -45,6 +45,14 @@
 </script>
 
 <style lang="scss" scoped>
+    $button--height: 32px;
+    $font-size: 14px;
+    $button-bg: white;
+    $button-active-bg: #eee;
+    $border-radius: 4px;
+    $color: #333;
+    $border-color: #999;
+    $border-color-hover: #666;
     @keyframes spin {
         0% {
             transform: rotate(0deg)
@@ -55,12 +63,12 @@
     }
 
     .vi-button {
-        font-style: var(--font-size);
-        height: var(--button--height);
+        font-style: $font-size;
+        height: $button--height;
         padding: 0 1.1em;
-        border-radius: var(--border-radius);
-        border: 1px solid var(--border-color);
-        background-color: var(--button-bg);
+        border-radius: $border-radius;
+        border: 1px solid $border-color;
+        background-color: $button-bg;
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -90,11 +98,11 @@
             }
         }
         &:hover {
-            border-color: var(--border-color-hover);
+            border-color: $border-color-hover;
 
         }
         &:active {
-            background-color: var(--button-active-bg);
+            background-color: $button-active-bg;
         }
 
         &:focus {
@@ -104,7 +112,7 @@
             order: 1;
             margin-right: .3em;
         }
-        > .content {
+        > .vi-button-content {
             order: 2;
         }
         &.icon-right {
@@ -113,7 +121,7 @@
                 margin-right: 0;
                 margin-left: .3em;
             }
-            > .content {
+            > .vi-button-content {
                 order: 1;
             }
 

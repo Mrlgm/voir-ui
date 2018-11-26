@@ -44,7 +44,6 @@
         },
         destroyed() {
             if (this.trigger === 'click') {
-                console.log('1');
                 this.$refs.popover.removeEventListener('click', this.onClick)
             } else {
                 this.$refs.popover.removeEventListener('mouseenter', this.open)
