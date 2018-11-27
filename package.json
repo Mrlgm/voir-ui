@@ -1,5 +1,5 @@
 {
-  "name": "voir-ui",
+  "name": "Voir-ui",
   "version": "0.1.0",
   "description": "一个基于vue的UI框架",
   "main": "dist/index.js",
