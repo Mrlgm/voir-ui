@@ -1,1 +1,7 @@
 docs/
+test/
+.travis.yml
+deploy.sh
+index.html
+karma.conf.js
+.idea
