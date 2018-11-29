@@ -25,7 +25,7 @@
         border: 1px solid #ddd;
         border-radius: 4px;
         .icon{
-
+            margin-right: 10px;
         }
     }
 </style>
