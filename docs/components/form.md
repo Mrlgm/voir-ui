@@ -24,4 +24,4 @@ title: Form
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 | ------- | ------ | ------ | :------: | :------: |
 | value | 输入框初始内容 | String | -- | -- |
-| disabled |
+| disabled | disabled状态 | Boolean | -- | false |
