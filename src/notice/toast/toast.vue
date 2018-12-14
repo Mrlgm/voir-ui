@@ -82,7 +82,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "../../var";
+    @import "../../assets/var";
     @keyframes slide-up {
         0% {
             opacity: 0;

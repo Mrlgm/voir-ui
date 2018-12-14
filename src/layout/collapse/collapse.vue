@@ -55,7 +55,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "../../var";
+    @import "../../assets/var";
 
     .collapse {
         border: 1px solid $grey;

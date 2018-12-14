@@ -51,7 +51,7 @@
 </script>
 
 <style lang="scss" scoped>
-   @import "../../var";
+   @import "../../assets/var";
     .tabs-item {
         flex-shrink: 0;
         padding: 0 2em;

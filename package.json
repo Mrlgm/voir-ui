@@ -1,54 +1,33 @@
 {
-  "name": "Voir-ui",
+  "name": "test",
   "version": "0.1.0",
-  "description": "一个基于vue的UI框架",
-  "main": "dist/index.js",
+  "private": true,
   "scripts": {
-    "dev-test": "parcel watch test/* --no-cache & karma start",
-    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
-    "start": "parcel ./index.html --no-cache",
-    "build": "parcel build index.js --no-cache --no-minify",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mrlgm/voir-UI.git"
-  },
-  "keywords": [
-    "vue",
-    "ui"
-  ],
-  "author": "Mrlgm",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Mrlgm/voir-UI/issues"
-  },
-  "homepage": "https://github.com/Mrlgm/voir-UI#readme",
   "dependencies": {
-    "vue": "^2.5.17",
-    "vue-hot-reload-api": "^2.3.1"
+    "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@vue/component-compiler-utils": "^2.3.0",
-    "chai": "^4.2.0",
-    "chai-spies": "^1.0.0",
-    "karma": "^3.1.1",
-    "karma-chai": "^0.1.0",
-    "karma-chai-spies": "^0.1.4",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-mocha": "^1.3.0",
-    "karma-sinon-chai": "^2.0.2",
-    "mocha": "^5.2.0",
-    "node-sass": "^4.10.0",
-    "parcel-bundler": "^1.10.3",
-    "sass-loader": "^7.1.0",
-    "sinon": "^6.0.0",
-    "sinon-chai": "^3.2.0",
-    "vue-template-compiler": "^2.5.17",
-    "vuepress": "^0.13.1"
+    "@vue/cli-plugin-babel": "^3.1.0",
+    "@vue/cli-plugin-unit-mocha": "^3.1.0",
+    "@vue/cli-service": "^3.1.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "chai": "^4.1.2",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.17"
   },
-  "alias": {
-    "vue": "./node_modules/vue/dist/vue.common.js"
-  }
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

@@ -111,7 +111,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "../../var";
+    @import "../../assets/var";
     .popover {
         display: inline-block;
         vertical-align: top;
