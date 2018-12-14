@@ -24,9 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
-    $tab-height: 40px;
-    $blue: #409EFF;
-    $border-color:#ddd;
+   @import "../../var";
     .tabs-nav {
         display: flex;
         justify-content: flex-start;
