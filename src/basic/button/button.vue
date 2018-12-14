@@ -56,7 +56,7 @@
     }
 
     .vi-button {
-        font-style: $font-size;
+        font-size: $font-size;
         height: $button--height;
         padding: 0 1.1em;
         border-radius: $border-radius;
