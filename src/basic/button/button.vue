@@ -4,7 +4,7 @@
         <vi-icon class="icon" v-if="icon&&!loading" :name="icon"></vi-icon>
         <vi-icon class="loading icon" v-if="loading" name="loading"></vi-icon>
         <div class="vi-button-content">
-            <slot></slot>
+            <slot>按钮</slot>
         </div>
     </button>
 </template>
