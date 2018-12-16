@@ -3,8 +3,8 @@
         <div class="trigger" @click="popoverVisible=!popoverVisible">
             <slot></slot>
         </div>
-        <div class="popover" v-if="popoverVisible">
-            <vi-cascader-items :items="source"></vi-cascader-items>
+        <div class="popover-wrapper" v-if="popoverVisible">
+            <vi-cascader-items class="popover" :selected="selected" :height="popoverHeight" :items="source" @update:selected="onUpdateSelected"></vi-cascader-items>
         </div>
     </div>
 </template>
@@ -20,6 +20,15 @@
         props: {
             source: {
                 type: Array
+            },
+            popoverHeight: {
+                type: String
+            },
+            selected: {
+                type: Array,
+                default: () => {
+                    return []
+                }
             }
         },
         data() {
@@ -27,8 +36,11 @@
                 popoverVisible: false,
             }
         },
-        computed:{
-
+        computed: {},
+        methods:{
+            onUpdateSelected(newSelected){
+                this.$emit('update:selected',newSelected)
+            }
         }
     }
 </script>
@@ -37,14 +49,19 @@
     @import "../../assets/var";
 
     .vi-cascader {
+        position: relative;
+
         .trigger {
             border: 1px solid red;
             height: 32px;
         }
 
-        .popover {
-            border: 1px solid red;
-            height: 200px;
+        .popover-wrapper {
+            @extend .box-shadow;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
         }
     }
 

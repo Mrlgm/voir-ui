@@ -1,19 +1,25 @@
 <template>
     <div class="demo">
-        <vi-cascader :source="source"></vi-cascader>
+        <p>{{selected}}</p>
+        <vi-cascader popover-height="200px" :source="source" :selected="selected" @update:selected="selected = $event"></vi-cascader>
+        2222
+        <vi-button>hhhh</vi-button>
     </div>
 </template>
 
 <script>
     import Cascader from './form/cascader/cascader'
+    import Button from './basic/button/button'
 
     export default {
         name: "demo",
         components: {
-            'vi-cascader': Cascader
+            'vi-cascader': Cascader,
+            'vi-button': Button
         },
         data() {
             return {
+                selected: [],
                 source: [
                     {
                         name: '广东省',
@@ -94,7 +100,7 @@
         font-size: var(--font-size);
     }
 
-   .demo {
+    .demo {
         margin-top: 100px;
         margin-left: 100px;
         width: 700px;
