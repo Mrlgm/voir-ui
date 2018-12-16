@@ -1,6 +1,5 @@
 <template>
     <div class="demo">
-        <p>{{selected}}</p>
         <vi-cascader popover-height="200px" :source="source" :selected="selected" @update:selected="selected = $event"></vi-cascader>
         2222
         <vi-button>hhhh</vi-button>
