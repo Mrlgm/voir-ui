@@ -1,6 +1,6 @@
 <template>
     <div class="demo">
-        <vi-cascader popover-height="200px" :source="source" :selected="selected" @update:selected="selected = $event"></vi-cascader>
+        <vi-cascader popover-height="200px" :source="source" :selected.sync="selected"></vi-cascader>
         2222
         <vi-button>hhhh</vi-button>
     </div>
@@ -9,6 +9,14 @@
 <script>
     import Cascader from './form/cascader/cascader'
     import Button from './basic/button/button'
+    import db from './db'
+
+
+    function ajax(parentId = 0) {
+        return db.filter((item) => item.parent_id == parentId)
+    }
+
+    console.log(ajax());
 
     export default {
         name: "demo",
@@ -19,72 +27,13 @@
         data() {
             return {
                 selected: [],
-                source: [
-                    {
-                        name: '广东省',
-                        children: [
-                            {
-                                name: '广州市',
-                                children: [
-                                    {name: '番禺区'},
-                                    {name: '越秀区'},
-                                    {name: '白云区'}
-                                ]
-                            },
-                            {
-                                name: '佛山市',
-                                children: [
-                                    {name: '禅城区'},
-                                    {name: '顺德区'},
-                                    {name: '三水区'}
-                                ]
-                            },
-                            {
-                                name: '汕头市',
-                                children: [
-                                    {name: '龙湖区'},
-                                    {name: '金平区'},
-                                    {name: '濠江区'}
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        name: '浙江省',
-                        children: [
-                            {
-                                name: '杭州市',
-                                children: [
-                                    {name: '上城区'},
-                                    {name: '下城区'},
-                                    {name: '江干区'}
-                                ]
-                            },
-                            {
-                                name: '嘉兴市',
-                                children: [
-                                    {name: '南湖区'},
-                                    {name: '秀洲区'},
-                                    {name: '嘉善区'}
-                                ]
-                            },
-                            {
-                                name: '福州市',
-                                children: [
-                                    {name: '吴兴区'},
-                                    {name: '南浔区'},
-                                    {name: '长兴区'}
-                                ]
-                            }
-                        ]
-                    }
-                ]
+                source: ajax()
             }
         }
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     * {
         margin: 0;
         padding: 0;
