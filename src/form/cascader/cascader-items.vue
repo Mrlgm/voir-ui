@@ -2,13 +2,13 @@
     <div class="vi-cascader-items" :style="{height: height}">
         <div class="left">
             <div class="label" v-for="item in items" @click="onClickLabel(item)">
-                {{item.name}}
-                <icon class="icon" v-if="item.children" name="right"></icon>
+                <span class="name">{{item.name}}</span>
+                <icon class="icon" v-if="rightArrowVisible(item)" name="right"></icon>
             </div>
         </div>
         <div class="right" v-if="rightItems">
             <vi-cascader-items :height="height" :selected="selected" :items="rightItems"
-                               :level="level+1" @update:selected="onUpdateSelected"></vi-cascader-items>
+                               :level="level+1" @update:selected="onUpdateSelected" :load-data="loadData"></vi-cascader-items>
         </div>
     </div>
 </template>
@@ -35,13 +35,16 @@
             level: {
                 type: Number,
                 default: 0
+            },
+            loadData:{
+                type:Function
             }
         },
         computed: {
             rightItems() {
                 if (this.selected[this.level]) {
                     let item = this.items.filter(item => item.name === this.selected[this.level].name)
-                    if (item && item[0].children && item[0].children.length>0) {
+                    if (item && item[0].children && item[0].children.length > 0) {
                         return item[0].children
                     } else {
                         return null
@@ -60,6 +63,9 @@
             },
             onUpdateSelected(newSelected) {
                 this.$emit('update:selected', newSelected)
+            },
+            rightArrowVisible(item){
+                return this.loadData ? !item.isLeaf : item.children
             }
         }
     }
@@ -87,12 +93,20 @@
         }
 
         .label {
-            padding: .3em 1em;
+            padding: .5em 1em;
             display: flex;
             align-items: center;
+            cursor: pointer;
+            &:hover{
+                background: $grey;
+            }
+            .name {
+                margin-right: 1em;
+                /*user-select: none;*/
+            }
 
             .icon {
-                margin-left: 1em;
+                margin-left: auto;
                 height: 15px;
                 width: 15px;
             }

@@ -1,7 +1,7 @@
 <template>
     <div class="demo">
         <vi-cascader popover-height="200px" :source.sync="source" :selected.sync="selected"
-                    :load-data="loadData"></vi-cascader>
+                     :load-data="loadData"></vi-cascader>
         2222
         <vi-button>hhhh</vi-button>
     </div>
@@ -16,6 +16,13 @@
         return new Promise((success, fail) => {
             setTimeout(() => {
                 let result = db.filter((item) => item.parent_id === parentId)
+                result.map(node => {
+                    if (db.filter(item => item.parent_id === node.id).length > 0) {
+                        node.isLeaf = false
+                    } else {
+                        node.isLeaf = true
+                    }
+                })
                 success(result)
             }, 200)
         })

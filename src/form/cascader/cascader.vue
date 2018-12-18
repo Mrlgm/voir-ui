@@ -4,7 +4,7 @@
             {{result || '&nbsp;'}}
         </div>
         <div class="popover-wrapper" v-if="popoverVisible">
-            <vi-cascader-items class="popover" :selected="selected" :height="popoverHeight" :items="source"
+            <vi-cascader-items class="popover" :load-data="loadData" :selected="selected" :height="popoverHeight" :items="source"
                                @update:selected="onUpdateSelected"></vi-cascader-items>
         </div>
     </div>
@@ -60,7 +60,7 @@
                         if (node[i].children) {
                             arr = found(node[i].children, id)
                         }
-                        if(arr){
+                        if (arr) {
                             return arr
                         }
                     }
@@ -75,7 +75,9 @@
                     //this.$set(toUpdate,'children',result)
                     this.$emit('update:source', copy)
                 }
-                this.loadData(lastItem, updateSource)//回调，把别人传给我的函数调用一下
+                if (!lastItem.isLeaf) {
+                   this.loadData && this.loadData(lastItem, updateSource)//回调，把别人传给我的函数调用一下
+                }
             }
         }
     }
