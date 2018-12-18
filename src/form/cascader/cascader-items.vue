@@ -39,11 +39,13 @@
         },
         computed: {
             rightItems() {
-                let currentSelected = this.selected[this.level]
-                if (currentSelected && currentSelected.children) {
-                    return currentSelected.children
-                } else {
-                    return null
+                if (this.selected[this.level]) {
+                    let item = this.items.filter(item => item.name === this.selected[this.level].name)
+                    if (item && item[0].children && item[0].children.length>0) {
+                        return item[0].children
+                    } else {
+                        return null
+                    }
                 }
             }
         },

@@ -4,7 +4,8 @@
             {{result || '&nbsp;'}}
         </div>
         <div class="popover-wrapper" v-if="popoverVisible">
-            <vi-cascader-items class="popover" :selected="selected" :height="popoverHeight" :items="source" @update:selected="onUpdateSelected"></vi-cascader-items>
+            <vi-cascader-items class="popover" :selected="selected" :height="popoverHeight" :items="source"
+                               @update:selected="onUpdateSelected"></vi-cascader-items>
         </div>
     </div>
 </template>
@@ -29,6 +30,9 @@
                 default: () => {
                     return []
                 }
+            },
+            loadData: {
+                type: Function
             }
         },
         data() {
@@ -37,15 +41,41 @@
             }
         },
         computed: {
-            result(){
-                return this.selected.map((item)=>{
+            result() {
+                return this.selected.map((item) => {
                     return item.name
                 }).join('/')
             }
         },
-        methods:{
-            onUpdateSelected(newSelected){
-                this.$emit('update:selected',newSelected)
+        methods: {
+            onUpdateSelected(newSelected) {
+                this.$emit('update:selected', newSelected)
+                let lastItem = newSelected[newSelected.length - 1]
+                let found = (node, id) => {
+                    let arr = node.filter(item => item.id === id)[0]
+                    if (arr) {
+                        return arr
+                    }
+                    for (let i = 0; i < node.length; i++) {
+                        if (node[i].children) {
+                            arr = found(node[i].children, id)
+                        }
+                        if(arr){
+                            return arr
+                        }
+                    }
+                    return undefined
+                }
+                let updateSource = (result) => {
+                    //let toUpdate = this.source.filter(item => item.id === lastItem.id)[0]
+                    let copy = JSON.parse(JSON.stringify(this.source))
+                    let toUpdate = found(copy, lastItem.id)
+                    console.log(toUpdate)
+                    toUpdate.children = result
+                    //this.$set(toUpdate,'children',result)
+                    this.$emit('update:source', copy)
+                }
+                this.loadData(lastItem, updateSource)//回调，把别人传给我的函数调用一下
             }
         }
     }
