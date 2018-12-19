@@ -1,10 +1,11 @@
 <template>
-    <div class="vi-cascader">
-        <div class="trigger" @click="popoverVisible=!popoverVisible">
+    <div class="vi-cascader" ref="cascader">
+        <div class="trigger" @click="toggle">
             {{result || '&nbsp;'}}
         </div>
         <div class="popover-wrapper" v-if="popoverVisible">
-            <vi-cascader-items class="popover" :load-data="loadData" :selected="selected" :height="popoverHeight" :items="source"
+            <vi-cascader-items class="popover" :load-data="loadData" :selected="selected" :height="popoverHeight"
+                               :items="source"
                                @update:selected="onUpdateSelected"></vi-cascader-items>
         </div>
     </div>
@@ -48,6 +49,31 @@
             }
         },
         methods: {
+            onClickDocument(e) {
+                let cascader = this.$refs.cascader
+                let target = e.target
+                if (cascader === target || cascader.contains(target)) {
+                    return
+                }
+                this.close()
+            },
+            open() {
+                this.popoverVisible = true
+                this.$nextTick(() => {
+                    document.addEventListener('click', this.onClickDocument)
+                })
+            },
+            close() {
+                this.popoverVisible = false
+                document.removeEventListener('click', this.onClickDocument)
+            },
+            toggle() {
+                if (this.popoverVisible === true) {
+                    this.close()
+                } else {
+                    this.open()
+                }
+            },
             onUpdateSelected(newSelected) {
                 this.$emit('update:selected', newSelected)
                 let lastItem = newSelected[newSelected.length - 1]
@@ -76,7 +102,7 @@
                     this.$emit('update:source', copy)
                 }
                 if (!lastItem.isLeaf) {
-                   this.loadData && this.loadData(lastItem, updateSource)//回调，把别人传给我的函数调用一下
+                    this.loadData && this.loadData(lastItem, updateSource)//回调，把别人传给我的函数调用一下
                 }
             }
         }
@@ -87,6 +113,7 @@
     @import "../../assets/var";
 
     .vi-cascader {
+        display: inline-flex;
         position: relative;
 
         .trigger {

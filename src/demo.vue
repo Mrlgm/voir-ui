@@ -1,9 +1,18 @@
 <template>
     <div class="demo">
-        <vi-cascader popover-height="200px" :source.sync="source" :selected.sync="selected"
-                     :load-data="loadData"></vi-cascader>
-        2222
-        <vi-button>hhhh</vi-button>
+        <div>
+            <vi-cascader popover-height="200px" :source.sync="source" :selected.sync="selected"
+                         :load-data="loadData"></vi-cascader>
+        </div>
+       <vi-popover>
+           <template>
+               <button>点我</button>
+           </template>
+           <template slot="content">
+               弹出内容
+           </template>
+       </vi-popover>
+
     </div>
 </template>
 
@@ -11,6 +20,7 @@
     import Cascader from './form/cascader/cascader'
     import Button from './basic/button/button'
     import db from './db'
+    import Popover from './other/popover/popover'
 
     function ajax(parentId = 0) {
         return new Promise((success, fail) => {
@@ -32,7 +42,8 @@
         name: "demo",
         components: {
             'vi-cascader': Cascader,
-            'vi-button': Button
+            'vi-button': Button,
+            'vi-popover': Popover
         },
         data() {
             return {
