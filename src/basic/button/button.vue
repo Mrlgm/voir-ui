@@ -46,14 +46,7 @@
 
 <style lang="scss" scoped>
     @import "../../assets/var";
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg)
-        }
-        100% {
-            transform: rotate(360deg)
-        }
-    }
+
 
     .vi-button {
         font-size: $font-size;
