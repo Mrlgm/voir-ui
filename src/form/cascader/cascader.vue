@@ -5,7 +5,7 @@
         </div>
         <div class="popover-wrapper" v-if="popoverVisible">
             <vi-cascader-items class="popover" :load-data="loadData" :selected="selected" :height="popoverHeight"
-                               :items="source"
+                               :items="source" :loading-item="loadingItem"
                                @update:selected="onUpdateSelected"></vi-cascader-items>
         </div>
     </div>
@@ -20,7 +20,7 @@
         components: {
             'vi-cascader-items': CascaderItems
         },
-        directives:{ClickOutside},
+        directives: {ClickOutside},
         props: {
             source: {
                 type: Array
@@ -41,6 +41,7 @@
         data() {
             return {
                 popoverVisible: false,
+                loadingItem: {}
             }
         },
         computed: {
@@ -84,6 +85,7 @@
                 }
                 let updateSource = (result) => {
                     //let toUpdate = this.source.filter(item => item.id === lastItem.id)[0]
+                    this.loadingItem = {}
                     let copy = JSON.parse(JSON.stringify(this.source))
                     let toUpdate = found(copy, lastItem.id)
                     console.log(toUpdate)
@@ -91,8 +93,9 @@
                     //this.$set(toUpdate,'children',result)
                     this.$emit('update:source', copy)
                 }
-                if (!lastItem.isLeaf) {
-                    this.loadData && this.loadData(lastItem, updateSource)//回调，把别人传给我的函数调用一下
+                if (!lastItem.isLeaf && this.loadData) {
+                    this.loadData(lastItem, updateSource)//回调，把别人传给我的函数调用一下
+                    this.loadingItem = lastItem
                 }
             }
         }
@@ -107,6 +110,7 @@
         position: relative;
 
         .trigger {
+            background-color: #fff;
             border: 1px solid $border-color;
             height: $input-height;
             display: inline-flex;
@@ -123,6 +127,7 @@
             margin-top: 8px;
             left: 0;
             background-color: #fff;
+            z-index: 1;
         }
     }
 

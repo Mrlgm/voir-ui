@@ -3,12 +3,22 @@
         <div class="left">
             <div class="label" v-for="item in items" @click="onClickLabel(item)">
                 <span class="name">{{item.name}}</span>
-                <icon class="icon" v-if="rightArrowVisible(item)" name="right"></icon>
+                <span class="icons">
+                    <template v-if="item.name === loadingItem.name">
+                        <icon class="loading" name="loading"></icon>
+                    </template>
+                    <template v-else>
+                        <icon class="next" v-if="rightArrowVisible(item)" name="right"></icon>
+                    </template>
+                </span>
+
             </div>
         </div>
         <div class="right" v-if="rightItems">
             <vi-cascader-items :height="height" :selected="selected" :items="rightItems"
-                               :level="level+1" @update:selected="onUpdateSelected" :load-data="loadData"></vi-cascader-items>
+                               :loading-item="loadingItem"
+                               :level="level+1" @update:selected="onUpdateSelected"
+                               :load-data="loadData"></vi-cascader-items>
         </div>
     </div>
 </template>
@@ -36,8 +46,12 @@
                 type: Number,
                 default: 0
             },
-            loadData:{
-                type:Function
+            loadData: {
+                type: Function
+            },
+            loadingItem: {
+                type: Object,
+                default: () => ({})
             }
         },
         computed: {
@@ -64,7 +78,7 @@
             onUpdateSelected(newSelected) {
                 this.$emit('update:selected', newSelected)
             },
-            rightArrowVisible(item){
+            rightArrowVisible(item) {
                 return this.loadData ? !item.isLeaf : item.children
             }
         }
@@ -98,19 +112,30 @@
             align-items: center;
             cursor: pointer;
             white-space: nowrap;
-            &:hover{
+
+            &:hover {
                 background: $grey;
             }
+
             .name {
                 margin-right: 1em;
                 /*user-select: none;*/
             }
 
-            .icon {
+            .icons {
                 margin-left: auto;
-                height: 15px;
-                width: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .next {
+                    transform: scale(0.6);
+                }
+
+                .loading {
+                    animation: spin 2s infinite linear;;
+                }
             }
         }
     }
+
 </style>

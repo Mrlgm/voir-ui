@@ -6,7 +6,7 @@
         </div>
        <vi-popover>
            <template>
-               <button>点我</button>
+               <vi-button>点我</vi-button>
            </template>
            <template slot="content">
                弹出内容
@@ -34,7 +34,7 @@
                     }
                 })
                 success(result)
-            }, 200)
+            }, 3000)
         })
     }
 
