@@ -10,7 +10,7 @@ features:
   details: 享用 Vue + webpack 开发环境
 - title: 性能高效
   details: 我也不知道高不高效
-footer: MIT Licensed | Copyright © 2018-present Evan You
+footer: MIT Licensed | Copyright © 2018-present Mrlgm
 ---
 
 ### 这是底部
