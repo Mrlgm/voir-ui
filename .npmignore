@@ -1,5 +1,5 @@
 docs/
-test/
+tests/
 .travis.yml
 deploy.sh
 babel.config.js
