@@ -1,20 +1,19 @@
 import chai from 'chai'
-import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
-import {shallowMount, mount} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 import Popover from '@/other/popover/popover'
 
-chai.use(sinonChai)
-
 const expect = chai.expect;
+
+chai.use(sinonChai)
 
 describe('Popover', () => {
     // BDD 行为测试驱动
 
-    it('存在.', () => {
+    it('存在', () => {
         expect(Popover).to.exist
     })
-    it('可以设置position.', () => {
+    it('可以设置position', () => {
         const wrapper = mount(Popover, {
             slots: {
                 default: {template: `<button>点我</button>`},

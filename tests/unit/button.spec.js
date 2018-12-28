@@ -1,14 +1,14 @@
 import chai from 'chai'
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
-import {shallowMount, mount} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 import Button from '@/basic/button/button';
-
-chai.use(sinonChai)
 
 const expect = chai.expect;
 
-describe('Button.vue', () => {
+chai.use(sinonChai)
+
+describe('Button', () => {
     it('存在.', () => {
         expect(Button).to.exist
     })
@@ -69,7 +69,7 @@ describe('Button.vue', () => {
         })
         const callback = sinon.fake();
         const vm = wrapper.vm
-        vm.$on('click',callback)
+        vm.$on('click', callback)
         wrapper.trigger('click')
         expect(callback.called).to.eq(true)
     })
