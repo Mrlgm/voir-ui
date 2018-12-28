@@ -37,8 +37,7 @@ describe('Button', () => {
                 isRipple: true
             }
         })
-        const vm = wrapper.vm
-        expect(vm.$el.classList.contains('ripple')).to.equal(true)
+        expect(wrapper.classes()).to.includes('ripple')
     })
     xit('icon 默认的 order 是 1', () => {
         const wrapper = mount(Button, {
