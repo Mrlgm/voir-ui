@@ -1,6 +1,6 @@
 const expect = chai.expect;
 import Vue from 'vue'
-import Col from '../src/layout/grid/col'
+import Col from '../../src/layout/grid/col'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
