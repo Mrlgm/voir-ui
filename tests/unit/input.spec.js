@@ -1,9 +1,12 @@
-const expect = chai.expect;
-import Vue from 'vue'
-import Input from '../../src/form/input/input'
+import chai from 'chai'
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai'
+import {mount} from '@vue/test-utils'
+import Input from '@/form/input/input'
 
-Vue.config.productionTip = false
-Vue.config.devtools = false
+const expect = chai.expect;
+
+chai.use(sinonChai)
 
 describe('Input', () => {
     // BDD 行为测试驱动
@@ -12,60 +15,50 @@ describe('Input', () => {
         expect(Input).to.exist
     })
     describe('props', () => {
-        const Constructor = Vue.extend(Input)
-        let vm
-        afterEach(() => {
-            vm.$destroy()
-        })
         it('接收 value', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     value: '1234'
                 }
-            }).$mount()
-            const inputElement = vm.$el.querySelector('input')
-            expect(inputElement.value).to.equal('1234')
-
+            })
+            const input = wrapper.find('input')
+            expect(input.element.value).to.equal('1234')
         })
         it('接收 disabled', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     disabled: true
                 }
-            }).$mount()
-            const inputElement = vm.$el.querySelector('input')
-            expect(inputElement.disabled).to.equal(true)
+            })
+            const input = wrapper.find('input')
+            expect(input.element.disabled).to.equal(true)
         })
         it('接收 readonly', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     readonly: true
                 }
-            }).$mount()
-            const inputElement = vm.$el.querySelector('input')
-            expect(inputElement.readOnly).to.equal(true)
+            })
+            const input = wrapper.find('input')
+            expect(input.element.readOnly).to.equal(true)
         })
         it('接收 error', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     error: 'wrong'
                 }
-            }).$mount()
-            const useElement = vm.$el.querySelector('use')
-            expect(useElement.getAttribute('xlink:href')).to.equal('#i-error')
-            const errorMessage = vm.$el.querySelector('.errorMessage')
-            expect(errorMessage.innerText).to.equal('wrong')
+            })
+            const errorMessage = wrapper.find('.errorMessage')
+            expect(errorMessage.text()).to.equal('wrong')
+            const useElement = wrapper.find('use')
+            expect(useElement.attributes('href')).to.equal('#i-error')
         })
     })
     describe('事件', () => {
-        const Constructor = Vue.extend(Input)
-        let vm
-        afterEach(() => {
-            vm.$destroy()
-        })
         it('支持 change/input/focus/blur 事件', () => {
             ['change', 'input', 'focus', 'blur'].forEach((eventName) => {
-                vm = new Constructor({}).$mount()
+                const wrapper = mount(Input, {})
+                const vm = wrapper.vm
                 const callback = sinon.fake()
                 vm.$on(eventName, callback)
                 //触发input change事件
