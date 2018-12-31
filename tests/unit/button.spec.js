@@ -41,6 +41,7 @@ describe('Button', () => {
     })
     xit('icon 默认的 order 是 1', () => {
         const wrapper = mount(Button, {
+            attachedToDocument:true,
             propsData: {
                 icon: 'settings',
             }
