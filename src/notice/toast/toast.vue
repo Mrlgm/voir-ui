@@ -83,6 +83,7 @@
 
 <style lang="scss" scoped>
     @import "../../assets/var";
+
     @keyframes slide-up {
         0% {
             opacity: 0;
@@ -118,23 +119,29 @@
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
+
         &.position-top {
             top: 0;
+
             .toast {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
                 animation: slide-down $animation-duration;
             }
         }
+
         &.position-middle {
             top: 50%;
             transform: translate(-50%, -50%);
+
             .toast {
                 animation: fade-in $animation-duration;
             }
         }
+
         &.position-bottom {
             bottom: 0;
+
             .toast {
                 border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
@@ -154,14 +161,17 @@
         border-radius: 4px;
         box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.50);
         padding: 0 16px;
+
         .message {
             padding: 8px 0;
         }
+
         .line {
             height: 100%;
             border-left: 1px solid #666;
             margin-left: 16px;
         }
+
         .close {
             padding-left: 16px;
             cursor: pointer;
