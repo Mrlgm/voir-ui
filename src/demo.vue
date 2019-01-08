@@ -1,5 +1,5 @@
 <template>
-    <div class="demo">
+    <div id="gg" class="demo">
         <vi-switch v-model="value"></vi-switch>
     </div>
 </template>
@@ -16,6 +16,11 @@
             return {
                 value: true
             }
+        },
+        mounted() {
+            gg.addEventListener('click',()=>{
+                console.log(this.value)
+            })
         }
     }
 </script>
