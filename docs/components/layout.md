@@ -53,6 +53,43 @@ title: Layout
 </vi-row>
 ```
 
+#### 响应式布局
+
+<ClientOnly>
+<grid-demo-3></grid-demo-3>
+</ClientOnly>
+
+```html
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+<vi-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></vi-col>
+```
+
+### Attributes
+
+#### vi-row Attributes
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| ------- | ------ | ------ | :------: | :------: |
+| gutter | 栅格间隔 | Number | -- | 0 |
+| align | flex 布局下的水平排列方式 | left/right/center | -- | left |
+
+#### vi-col Attributes
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| ------- | ------ | ------ | :------: | :------: |
+| span | 栅格占据的列数 | Number | -- | 24 |
+| offset | 栅格左侧的间隔格数 | Number | -- | 0 |
+| widePc | >1201px 响应式栅格数或者栅格属性对象 | Object (例如： {span: 4, offset: 4}) | -- | -- |
+| pc | >993px 响应式栅格数或者栅格属性对象 | Object (例如： {span: 4, offset: 4}) | -- | -- |
+| narrowPc | >769px 响应式栅格数或者栅格属性对象 | Object (例如： {span: 4, offset: 4}) | -- | -- |
+| ipad | >577px 响应式栅格数或者栅格属性对象 | Object (例如： {span: 4, offset: 4}) | -- | -- |
+
 ## container
 
 ## collapse
