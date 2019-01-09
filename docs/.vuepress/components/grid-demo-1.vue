@@ -28,9 +28,6 @@
 </script>
 
 <style lang="scss" scoped>
-    *{
-        box-sizing: border-box;
-    }
     .demo {
         margin-top: 10px;
         padding: 10px;
