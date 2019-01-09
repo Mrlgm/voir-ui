@@ -1,26 +1,27 @@
 <template>
     <div id="gg" class="demo">
-        <vi-switch v-model="value" disabled></vi-switch>
+        <vi-input v-model="message" placeholder="你好啊"></vi-input>{{message}}
     </div>
 </template>
 
 <script>
     import Switch from './form/switch/switch'
+    import Input from './form/input/input'
 
     export default {
         name: 'demo',
         components: {
-            'vi-switch': Switch
+            'vi-switch': Switch,
+            'vi-input': Input
         },
         data() {
             return {
-                value: true
+                value: true,
+                message:''
             }
         },
         mounted() {
-            gg.addEventListener('click',()=>{
-                console.log(this.value)
-            })
+
         }
     }
 </script>

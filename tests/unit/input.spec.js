@@ -45,11 +45,9 @@ describe('Input', () => {
         it('接收 error', () => {
             const wrapper = mount(Input, {
                 propsData: {
-                    error: 'wrong'
+                    error: true
                 }
             })
-            const errorMessage = wrapper.find('.errorMessage')
-            expect(errorMessage.text()).to.equal('wrong')
             const useElement = wrapper.find('use')
             expect(useElement.attributes('href')).to.equal('#i-error')
         })
