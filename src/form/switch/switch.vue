@@ -1,6 +1,8 @@
 <template>
     <div class="vi-switch" :class="{'is-disabled': disabled}" @click="switchValue">
-        <input @change="handleChange" ref="input" class="vi-switch_input" type="checkbox">
+        <input @change="handleChange" ref="input" class="vi-switch_input" type="checkbox"
+               :true-value="activeValue"
+               :false-value="inactiveValue">
         <span class="vi-switch_core" :class="{'is-checked': checked }" ref="core"></span>
     </div>
 </template>
@@ -38,6 +40,11 @@
                 type: String
             }
         },
+        created() {
+            if (!~[this.activeValue, this.inactiveValue].indexOf(this.value)) {
+                this.$emit('input', this.inactiveValue);
+            }
+        },
         computed: {
             checked() {
                 return this.value === this.activeValue;
@@ -61,6 +68,7 @@
             },
             switchValue() {
                 !this.disabled && this.handleChange();
+                console.log(this.checked)
             },
             setBackgroundColor() {
                 let newColor = this.checked ? this.activeColor : this.inactiveColor;
@@ -83,6 +91,7 @@
         display: inline-flex;
         position: relative;
         cursor: pointer;
+        width: 40px;
 
         &.is-disabled {
             cursor: not-allowed;
@@ -98,7 +107,7 @@
         }
 
         .vi-switch_core {
-            width: 40px;
+            width: 100%;
             height: 20px;
             background: #dcdfe6;
             border-radius: 10px;

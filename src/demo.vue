@@ -1,6 +1,7 @@
 <template>
     <div class="demo">
         <vi-input v-model="message" placeholder="你好啊" error></vi-input>{{message}}
+        <vi-switch></vi-switch>
     </div>
 </template>
 

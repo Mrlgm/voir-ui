@@ -81,7 +81,7 @@
 
             &:focus,
             &:hover {
-                border-color: $border-color-hover;
+                border-color: $blue;
             }
 
             &[disabled],
