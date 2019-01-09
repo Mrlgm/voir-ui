@@ -1,5 +1,5 @@
 <template>
-    <div class="vi-switch" @click="switchValue">
+    <div class="vi-switch" :class="{'is-disabled': disabled}" @click="switchValue">
         <input @change="handleChange" ref="input" class="vi-switch_input" type="checkbox">
         <span class="vi-switch_core" :class="{'is-checked': checked }" ref="core"></span>
     </div>
@@ -16,11 +16,11 @@
             },
             activeColor: {
                 type: String,
-                default: '#dddddd'
+                default: '#000'
             },
             inactiveColor: {
                 type: String,
-                default: '#000'
+                default: '#ddd'
             },
             activeValue: {
                 type: [Boolean, String, Number],
@@ -29,6 +29,13 @@
             inactiveValue: {
                 type: [Boolean, String, Number],
                 default: false
+            },
+            disabled: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String
             }
         },
         computed: {
@@ -49,13 +56,11 @@
                 this.$emit('input', !this.checked ? this.activeValue : this.inactiveValue);
                 this.$emit('change', !this.checked ? this.activeValue : this.inactiveValue);
                 this.$nextTick(() => {
-                    // set input's checked property
-                    // in case parent refuses to change component's value
                     this.$refs.input.checked = this.checked;
                 });
             },
             switchValue() {
-                this.handleChange();
+                !this.disabled && this.handleChange();
             },
             setBackgroundColor() {
                 let newColor = this.checked ? this.activeColor : this.inactiveColor;
@@ -64,7 +69,6 @@
             },
         },
         mounted() {
-            /* istanbul ignore if */
             if (this.activeColor || this.inactiveColor) {
                 this.setBackgroundColor();
             }
@@ -78,6 +82,12 @@
     .vi-switch {
         display: inline-flex;
         position: relative;
+        cursor: pointer;
+
+        &.is-disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
 
         .vi-switch_input {
             position: absolute;
@@ -92,8 +102,8 @@
             height: 20px;
             background: #dcdfe6;
             border-radius: 10px;
-            cursor: pointer;
             border: 1px solid #ccc;
+
             &.is-checked::after {
                 left: 100%;
                 margin-left: -18px;

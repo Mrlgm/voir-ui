@@ -1,6 +1,6 @@
 <template>
     <div id="gg" class="demo">
-        <vi-switch v-model="value"></vi-switch>
+        <vi-switch v-model="value" disabled></vi-switch>
     </div>
 </template>
 
