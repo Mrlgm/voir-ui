@@ -56,3 +56,8 @@ title: Layout
 ## container
 
 ## collapse
+
+
+<ClientOnly>
+<box-sizing></box-sizing>
+</ClientOnly>

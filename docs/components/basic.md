@@ -81,3 +81,8 @@ title: Basic
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 | ------- | ------ | ------ | :------: | :------: |
 | allRipple | 是否所有按钮都有波纹效果 | Boolean | -- | -- |
+
+
+<ClientOnly>
+<box-sizing></box-sizing>
+</ClientOnly>
