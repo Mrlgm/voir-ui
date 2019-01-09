@@ -21,7 +21,13 @@ title: Form
 <vi-switch  v-model="switchValue3" disabled></vi-switch>
 ```
 
-### 属性
+### Attributes
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| ------- | ------ | ------ | :------: | :------: |
+| active-color | 开关正确对应的背景颜色 | String | -- | -- |
+| inactive-color | 开关错误对应的背景颜色 | String | -- | -- |
+| disabled | 禁用状态 | Boolean | -- | false |
 
 ## input
 
