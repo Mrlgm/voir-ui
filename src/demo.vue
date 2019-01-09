@@ -1,6 +1,6 @@
 <template>
-    <div id="gg" class="demo">
-        <vi-input v-model="message" placeholder="你好啊"></vi-input>{{message}}
+    <div class="demo">
+        <vi-input v-model="message" placeholder="你好啊" error></vi-input>{{message}}
     </div>
 </template>
 

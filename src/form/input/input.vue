@@ -53,6 +53,7 @@
         font-size: $font-size;
         display: inline-flex;
         align-items: center;
+        width: 100%;
         position: relative;
 
         .vi-input-icon + input {
@@ -72,6 +73,7 @@
 
         > input {
             height: $input-height;
+            width: 100%;
             padding: 0 8px;
             font-size: inherit;
             border: 1px solid $border-color;
@@ -96,6 +98,10 @@
 
             &.error {
                 border-color: $red;
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 2px rgba(244, 88, 88, 0.71);
+                }
             }
         }
 
