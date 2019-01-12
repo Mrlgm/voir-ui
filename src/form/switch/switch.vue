@@ -68,7 +68,6 @@
             },
             switchValue() {
                 !this.disabled && this.handleChange();
-                console.log(this.checked)
             },
             setBackgroundColor() {
                 let newColor = this.checked ? this.activeColor : this.inactiveColor;
