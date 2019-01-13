@@ -1,9 +1,9 @@
 <template>
     <div class="demo">
         <vi-layout class="layout">
-            <vi-header class="header"></vi-header>
-            <vi-content class="content"></vi-content>
-            <vi-footer class="footer"></vi-footer>
+            <vi-header class="header">header</vi-header>
+            <vi-content class="content">content</vi-content>
+            <vi-footer class="footer">footer</vi-footer>
         </vi-layout>
     </div>
 </template>
@@ -36,9 +36,30 @@
         .layout {
             width: 100%;
             .header{
-                background-color: #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                background-color: #555;
                 width: 100%;
-                height: 100px;
+                height: 50px;
+            }
+            .content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                background-color: #666;
+                width: 100%;
+            }
+            .footer{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                background-color: #999;
+                width: 100%;
+                height: 50px;
             }
         }
     }
