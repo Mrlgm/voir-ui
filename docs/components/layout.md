@@ -97,7 +97,11 @@ title: Layout
 ### 基本用法
 
 <ClientOnly>
-<container-demo></container-demo>
+<container-demo-1></container-demo-1>
+</ClientOnly>
+
+<ClientOnly>
+<container-demo-2></container-demo-2>
 </ClientOnly>
 
 ### Attributes
