@@ -104,6 +104,10 @@ title: Layout
 <container-demo-2></container-demo-2>
 </ClientOnly>
 
+<ClientOnly>
+<container-demo-3></container-demo-3>
+</ClientOnly>
+
 ### Attributes
 
 ## collapse
