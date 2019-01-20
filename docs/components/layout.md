@@ -100,13 +100,43 @@ title: Layout
 <container-demo-1></container-demo-1>
 </ClientOnly>
 
+```html
+ <vi-layout>
+    <vi-header>header</vi-header>
+    <vi-content>content</vi-content>
+    <vi-footer>footer</vi-footer>
+</vi-layout>
+```
+
 <ClientOnly>
 <container-demo-2></container-demo-2>
 </ClientOnly>
 
+```html
+<vi-layout>
+    <vi-sider>sider</vi-sider>
+    <vi-layout>
+        <vi-header>header</vi-header>
+        <vi-content>content</vi-content>
+        <vi-footer">footer</vi-footer>
+    </vi-layout>
+</vi-layout>
+```
+
 <ClientOnly>
 <container-demo-3></container-demo-3>
 </ClientOnly>
+
+```html
+ <vi-layout>
+    <vi-header>header</vi-header>
+    <vi-layout>
+        <vi-sider>sider</vi-sider>
+        <vi-content>content</vi-content>
+    </vi-layout>
+    <vi-footer>footer</vi-footer>
+</vi-layout>
+```
 
 ### Attributes
 
