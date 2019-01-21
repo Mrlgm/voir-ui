@@ -128,7 +128,7 @@ title: Layout
 </ClientOnly>
 
 ```html
- <vi-layout>
+<vi-layout>
     <vi-header>header</vi-header>
     <vi-layout>
         <vi-sider>sider</vi-sider>

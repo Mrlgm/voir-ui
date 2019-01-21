@@ -38,6 +38,7 @@
 
         .layout {
             width: 100%;
+            overflow: hidden;
 
             .sider {
                 width: 200px;

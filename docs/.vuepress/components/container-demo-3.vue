@@ -36,9 +36,10 @@
         border: 1px solid #ddd;
         border-radius: 4px;
 
+
         .layout {
             width: 100%;
-
+            overflow: hidden;
             .sider {
                 width: 200px;
                 display: flex;
