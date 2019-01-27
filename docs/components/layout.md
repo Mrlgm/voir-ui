@@ -145,6 +145,12 @@ title: Layout
 
 ## collapse
 
+### 基本用法
+
+<ClientOnly>
+<collapse-demo></collapse-demo>
+</ClientOnly>
+
 
 <ClientOnly>
 <box-sizing></box-sizing>
