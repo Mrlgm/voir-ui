@@ -30,11 +30,7 @@
         inject: ['eventBus'],
         mounted() {
             this.eventBus && this.eventBus.$on('update:selected', (names) => {
-                if (names.indexOf(this.name) >= 0) {
-                    this.open = true
-                } else {
-                    this.open = false
-                }
+                this.open = names.indexOf(this.name) >= 0;
             })
         },
         methods: {
