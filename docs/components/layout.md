@@ -180,6 +180,7 @@ title: Layout
 | ------- | ------ | ------ | :------: | :------: |
 | single | 是否显示单项 | Boolean | -- | false |
 | selected | 被选择的项 | Array | -- | -- |
+备注：如果selected绑定的是参数，想要实现双向绑定请在后面加上.sync
 
 #### vi-collapse-item Attributes
 
