@@ -142,15 +142,51 @@ title: Layout
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 | ------- | ------ | ------ | :------: | :------: |
+| -- | -- | -- | -- | -- |
 
 ## collapse
 
 ### 基本用法
 
 <ClientOnly>
-<collapse-demo></collapse-demo>
+<collapse-demo-1></collapse-demo-1>
 </ClientOnly>
 
+```html
+<vi-collapse :selected="['finance']" single>
+    <vi-collapse-item title="财经" name="finance"> 这是财经的内容</vi-collapse-item>
+    <vi-collapse-item title="体育" name="sports"> 这是体育的内容</vi-collapse-item>
+    <vi-collapse-item title="美女" name="beauty"> 这是美女的内容</vi-collapse-item>
+</vi-collapse>
+```
+
+<ClientOnly>
+<collapse-demo-2></collapse-demo-2>
+</ClientOnly>
+
+```html
+<vi-collapse :selected="['finance', 'sports', 'beauty']">
+    <vi-collapse-item title="财经" name="finance"> 这是财经的内容</vi-collapse-item>
+    <vi-collapse-item title="体育" name="sports"> 这是体育的内容</vi-collapse-item>
+    <vi-collapse-item title="美女" name="beauty"> 这是美女的内容</vi-collapse-item>
+</vi-collapse>
+```
+
+### Attributes
+
+#### vi-collapse Attributes
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| ------- | ------ | ------ | :------: | :------: |
+| single | 是否显示单项 | Boolean | -- | false |
+| selected | 被选择的项 | Array | -- | -- |
+
+#### vi-collapse-item Attributes
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| ------- | ------ | ------ | :------: | :------: |
+| title | 单项小标题 | String | -- | -- |
+| name | 选择标记 | String | -- | -- |
 
 <ClientOnly>
 <box-sizing></box-sizing>
