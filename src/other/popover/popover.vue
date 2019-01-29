@@ -1,5 +1,5 @@
 <template>
-    <div class="popover" ref="popover">
+    <div class="vi-popover" ref="popover">
         <div ref="content" class="content-wrapper" v-if="visible"
              :class="`position-${position}`">
             <slot name="content" :close="close"></slot>
@@ -112,7 +112,7 @@
 
 <style lang="scss" scoped>
     @import "../../assets/var";
-    .popover {
+    .vi-popover {
         display: inline-block;
         vertical-align: top;
         position: relative;
