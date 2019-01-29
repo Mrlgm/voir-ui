@@ -1,33 +1,47 @@
 <template>
     <div class="demo">
-        <vi-collapse :selected.sync="arr1">
-            <vi-collapse-item title="财经" name="finance"> 这是财经的内容</vi-collapse-item>
-            <vi-collapse-item title="体育" name="sports"> 这是体育的内容</vi-collapse-item>
-            <vi-collapse-item title="美女" name="beauty"> 这是美女的内容</vi-collapse-item>
-        </vi-collapse>
-        {{arr1}}
-        <vi-collapse :selected.sync="arr2" single>
-            <vi-collapse-item title="财经" name="finance"> 这是财经的内容</vi-collapse-item>
-            <vi-collapse-item title="体育" name="sports"> 这是体育的内容</vi-collapse-item>
-            <vi-collapse-item title="美女" name="beauty"> 这是美女的内容</vi-collapse-item>
-        </vi-collapse>
-        {{arr2}}
+        <vi-tabs selected="beauty">
+            <vi-tabs-nav>
+                <vi-tabs-item name="beauty">
+                    美女
+                </vi-tabs-item>
+                <vi-tabs-item name="finance">
+                    财经
+                </vi-tabs-item>
+                <vi-tabs-item name="sports">
+                    体育
+                </vi-tabs-item>
+            </vi-tabs-nav>
+            <vi-tabs-content>
+                <vi-tabs-pane name="beauty">
+                    这是美女的内容
+                </vi-tabs-pane>
+                <vi-tabs-pane name="finance">
+                    这是财经的内容
+                </vi-tabs-pane>
+                <vi-tabs-pane name="sports">
+                    这是体育的内容
+                </vi-tabs-pane>
+            </vi-tabs-content>
+        </vi-tabs>
     </div>
 </template>
 
 <script>
-    import Switch from './form/switch/switch'
-    import Input from './form/input/input'
-    import Collapse from '@/layout/collapse/collapse'
-    import CollapseItem from '@/layout/collapse/collapse-item'
+    import Tabs from './navigation/tabs/tabs'
+    import TabsContent from './navigation/tabs/tabs-content'
+    import TabsItem from './navigation/tabs/tabs-item'
+    import TabsNav from './navigation/tabs/tabs-nav'
+    import TabsPane from './navigation/tabs/tabs-pane'
 
     export default {
         name: 'demo',
         components: {
-            'vi-switch': Switch,
-            'vi-input': Input,
-            'vi-collapse': Collapse,
-            'vi-collapse-item': CollapseItem,
+            'vi-tabs': Tabs,
+            'vi-tabs-content': TabsContent,
+            'vi-tabs-item': TabsItem,
+            'vi-tabs-nav': TabsNav,
+            'vi-tabs-pane': TabsPane
         },
         data() {
             return {
