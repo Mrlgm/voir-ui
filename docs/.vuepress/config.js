@@ -15,20 +15,20 @@ module.exports = {
                 link: '/'
             },
             {
-                text: '文档',
-                link: '/guide/'
+                text: '仓库',
+                link: 'https://github.com/Mrlgm/voir-UI'
             },
-            {
-                text: '交流',
-                link: 'https://google.com'
-            },
-            {
-                text: 'Languages',
-                items: [
-                    {text: 'Chinese', link: '/language/chinese/'},
-                    {text: 'Japanese', link: '/language/japanese/'}
-                ]
-            }
+            // {
+            //     text: '交流',
+            //     link: 'https://google.com'
+            // },
+            // {
+            //     text: 'Languages',
+            //     items: [
+            //         {text: 'Chinese', link: '/language/chinese/'},
+            //         {text: 'Japanese', link: '/language/japanese/'}
+            //     ]
+            // }
         ],
         sidebar: [
             {
