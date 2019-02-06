@@ -12,5 +12,3 @@ features:
   details: 我也不知道高不高效
 footer: MIT Licensed | Copyright © 2018-present Mrlgm
 ---
-
-### 这是底部
