@@ -4,3 +4,6 @@ tests/
 deploy.sh
 babel.config.js
 .idea
+src/demo.vue
+src/main.js
+src/db.js
