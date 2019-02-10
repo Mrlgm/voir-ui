@@ -8,7 +8,7 @@ features:
   details: 用法简单
 - title: Vue 驱动
   details: 享用 Vue + webpack 开发环境
-- title: 性能高效
-  details: 我也不知道高不高效
+- title: 源码易读
+  details: 源码简单通俗，容易理解看懂
 footer: MIT Licensed | Copyright © 2018-present Mrlgm
 ---
