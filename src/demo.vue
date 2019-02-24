@@ -1,26 +1,39 @@
 <template>
     <div class="demo">
-        <vi-slides>
-            <div class="box">1</div>
-            <div class="box">2</div>
-            <div class="box">3</div>
+        <vi-slides :selected="selected">
+            <vi-slides-item name="1">
+                <div class="box">1</div>
+            </vi-slides-item>
+            <vi-slides-item name="2">
+                <div class="box">2</div>
+            </vi-slides-item>
+            <vi-slides-item name="3">
+                <div class="box">3</div>
+            </vi-slides-item>
         </vi-slides>
+        <a href="javascript:0">111</a>
     </div>
 </template>
 
 <script>
-    import slides from './other/slides/slides'
+    import ViSlides from './other/slides/slides'
+    import ViSlidesItem from './other/slides/slides-item'
 
     export default {
         name: 'demo',
         components: {
-            "vi-slides": slides
+            ViSlides,
+            ViSlidesItem
         },
         data() {
-            return {}
+            return {
+                selected: '1'
+            }
         },
         mounted() {
-
+            setTimeout(() => {
+                this.selected = '2'
+            }, 2000)
         }
     }
 </script>
@@ -46,7 +59,7 @@
         width: 700px;
     }
 
-    .box{
+    .box {
         height: 100px;
         width: 100px;
         background-color: #ddd;

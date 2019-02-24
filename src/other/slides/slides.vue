@@ -1,10 +1,9 @@
 <template>
     <div class="vi-slides">
-        <div class="vi-slides-window">
-            <div ref="content" class="vi-slides-inner">
+        <div ref="window" class="vi-slides-window">
+            <div class="vi-slides-wrapper">
                 <slot></slot>
             </div>
-
         </div>
     </div>
 </template>
@@ -12,27 +11,39 @@
 <script>
     export default {
         name: "ViSlides",
+        props: {
+            selected: {
+                type: String,
+            }
+        },
         created() {
-            setTimeout(()=>{
-                this.$refs.content.style.transform = `translateX(-100px)`
-            },3000)
+
+        },
+        mounted() {
+            let first = this.$children[0]
+            this.updateChildren(this.selected || first.name)
+
+        },
+        updated() {
+            this.updateChildren(this.selected)
+        },
+        methods: {
+            updateChildren(selected) {
+                this.$children.forEach((vm) => {
+                    vm.selected = selected
+                })
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
     .vi-slides {
-        .vi-slides-window {
-            width: 100px;
-            overflow: hidden;
-            .vi-slides-inner {
-                display: flex;
+        display: inline-block;
+        border: 1px solid red;
 
-                & > * {
-                    width: 100%;
-                    flex-shrink: 0;
-                }
-            }
+        &-wrapper {
+            position: relative;
         }
     }
 </style>
