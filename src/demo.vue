@@ -11,7 +11,6 @@
                 <div class="box">3</div>
             </vi-slides-item>
         </vi-slides>
-        <a href="javascript:0">111</a>
     </div>
 </template>
 
@@ -31,8 +30,13 @@
             }
         },
         mounted() {
-            setTimeout(() => {
-                this.selected = '2'
+            let n = 1
+            setInterval(() => {
+                if(n>3){
+                    n = 1
+                }
+                this.selected = n.toString()
+                n++
             }, 2000)
         }
     }

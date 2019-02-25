@@ -20,15 +20,15 @@
 
         },
         mounted() {
-            let first = this.$children[0]
-            this.updateChildren(this.selected || first.name)
-
+            this.updateChildren()
         },
         updated() {
-            this.updateChildren(this.selected)
+            this.updateChildren()
         },
         methods: {
-            updateChildren(selected) {
+            updateChildren() {
+                let first = this.$children[0]
+                let selected = this.selected || first
                 this.$children.forEach((vm) => {
                     vm.selected = selected
                 })
