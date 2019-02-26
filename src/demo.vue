@@ -1,6 +1,6 @@
 <template>
     <div class="demo">
-        <vi-slides :selected="selected">
+        <vi-slides :selected.sync="selected">
             <vi-slides-item name="1">
                 <div class="box">1</div>
             </vi-slides-item>
@@ -30,14 +30,7 @@
             }
         },
         mounted() {
-            let n = 1
-            setInterval(() => {
-                if(n>3){
-                    n = 1
-                }
-                this.selected = n.toString()
-                n++
-            }, 2000)
+
         }
     }
 </script>
