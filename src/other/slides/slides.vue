@@ -44,14 +44,17 @@
             playAutomatically() {
                 const names = this.$children.map(vm => vm.name)
                 let index = names.indexOf(this.getSelected())
-                setInterval(() => {
+                //用setTimeout模拟setInterval
+                let run = () => {
                     if (index === names.length) {
                         index = 0
                     }
-                    console.log(index)
                     this.$emit('update:selected', names[index + 1])
                     index++
-                }, 3000)
+                    setTimeout(run, 3000)
+                }
+                setTimeout(run, 3000)
+
             }
         }
     }
