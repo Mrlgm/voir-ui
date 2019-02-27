@@ -26,7 +26,7 @@
         },
         data() {
             return {
-                selected: '1'
+                selected: '3'
             }
         },
         mounted() {

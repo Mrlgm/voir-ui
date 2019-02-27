@@ -35,6 +35,10 @@
                 let selected = this.getSelected()
                 this.$children.forEach((vm) => {
                     vm.selected = selected
+                    const names = this.$children.map(vm => vm.name)
+                    let newIndex = names.indexOf(selected)
+                    let oldIndex = names.indexOf(vm.selected)
+                    vm.reverse = newIndex <= oldIndex
                 })
             },
             getSelected() {
@@ -46,11 +50,14 @@
                 let index = names.indexOf(this.getSelected())
                 //用setTimeout模拟setInterval
                 let run = () => {
-                    if (index === names.length) {
-                        index = 0
+                    let newIndex = index - 1
+                    if (newIndex === -1) {
+                        newIndex = names.length - 1
                     }
-                    this.$emit('update:selected', names[index + 1])
-                    index++
+                    if (newIndex === names.length) {
+                        newIndex = 0
+                    }
+                    this.$emit('update:selected', names[newIndex])
                     setTimeout(run, 3000)
                 }
                 setTimeout(run, 3000)
@@ -64,7 +71,9 @@
     .vi-slides {
         display: inline-block;
         border: 1px solid black;
-
+        &-window{
+            overflow: hidden;
+        }
         &-wrapper {
             position: relative;
         }
