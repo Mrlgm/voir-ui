@@ -69,7 +69,6 @@
 
 <style lang="scss" scoped>
     .vi-slides {
-        display: inline-block;
         border: 1px solid black;
         &-window{
             overflow: hidden;

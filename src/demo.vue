@@ -1,6 +1,6 @@
 <template>
     <div class="demo">
-        <vi-slides :selected.sync="selected">
+        <vi-slides class="wrapper" :selected.sync="selected">
             <vi-slides-item name="1">
                 <div class="box">1</div>
             </vi-slides-item>
@@ -50,15 +50,12 @@
         font-size: var(--font-size);
     }
 
-    .demo {
-        margin-top: 100px;
-        margin-left: 100px;
-        width: 700px;
+    .wrapper{
+
     }
 
     .box {
-        height: 100px;
-        width: 100px;
+        height: 400px;
         background-color: #ddd;
         border: 1px solid red;
     }
