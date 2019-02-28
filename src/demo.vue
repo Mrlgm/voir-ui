@@ -50,8 +50,8 @@
         font-size: var(--font-size);
     }
 
-    .wrapper{
-
+    .wrapper {
+        margin: 40px;
     }
 
     .box {
