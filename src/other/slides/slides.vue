@@ -51,12 +51,10 @@
             updateChildren() {
                 let selected = this.getSelected()
                 this.$children.forEach((vm) => {
-                    vm.selected = selected
-                    let newIndex = this.names.indexOf(selected)
-                    let oldIndex = this.names.indexOf(vm.selected)
-                    console.log('this.lastSelectedIndex' + this.lastSelectedIndex)
-                    console.log('this.selectedIndex' + this.selectedIndex)
-                    vm.reverse = this.selectedIndex > this.lastSelectedIndex ? false : true
+                    vm.reverse = this.selectedIndex < this.lastSelectedIndex
+                    this.$nextTick(()=>{
+                        vm.selected = selected
+                    })
                 })
             },
             select(index) {
