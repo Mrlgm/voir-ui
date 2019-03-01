@@ -36,7 +36,7 @@
 
 <style lang="scss" scoped>
     .slide-enter-active, .slide-leave-active {
-        transition: all 1s;
+        transition: all .5s;
     }
 
     .slide-leave-active {

@@ -1,6 +1,6 @@
 <template>
     <div class="vi-slides">
-        <div ref="window" class="vi-slides-window">
+        <div ref="window" class="vi-slides-window" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
             <div class="vi-slides-wrapper">
                 <slot></slot>
             </div>
@@ -28,7 +28,8 @@
         data() {
             return {
                 childrenLength: 0,
-                lastSelectedIndex: undefined
+                lastSelectedIndex: undefined,
+                timerId: undefined
             }
         },
         computed: {
@@ -41,18 +42,24 @@
         },
         mounted() {
             this.updateChildren()
-            // this.playAutomatically()
+            this.playAutomatically()
             this.childrenLength = this.$children.length
         },
         updated() {
             this.updateChildren()
         },
         methods: {
+            onMouseEnter() {
+                this.pause()
+            },
+            onMouseLeave() {
+                this.playAutomatically()
+            },
             updateChildren() {
                 let selected = this.getSelected()
                 this.$children.forEach((vm) => {
                     vm.reverse = this.selectedIndex < this.lastSelectedIndex
-                    this.$nextTick(()=>{
+                    this.$nextTick(() => {
                         vm.selected = selected
                     })
                 })
@@ -67,6 +74,9 @@
             },
             playAutomatically() {
                 //用setTimeout模拟setInterval
+                if (this.timerId) {
+                    return
+                }
                 let run = () => {
                     let index = this.names.indexOf(this.getSelected())
                     let newIndex = index - 1
@@ -77,10 +87,14 @@
                         newIndex = 0
                     }
                     this.select(newIndex)
-                    setTimeout(run, 3000)
+                    this.timerId = setTimeout(run, 3000)
                 }
-                setTimeout(run, 3000)
+                this.timerId = setTimeout(run, 3000)
 
+            },
+            pause() {
+                window.clearTimeout(this.timerId)
+                this.timerId = undefined
             }
         }
     }
