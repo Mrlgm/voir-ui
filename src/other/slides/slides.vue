@@ -1,5 +1,10 @@
 <template>
-    <div class="vi-slides" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+    <div class="vi-slides"
+         @mouseenter="onMouseEnter"
+         @mouseleave="onMouseLeave"
+         @touchstart="onTouchStart"
+         @touchmove="onTouchMove"
+         @touchend="onTouchEnd">
         <div ref="window" class="vi-slides-window">
             <div class="vi-slides-wrapper">
                 <slot></slot>
@@ -29,12 +34,14 @@
             return {
                 childrenLength: 0,
                 lastSelectedIndex: undefined,
-                timerId: undefined
+                timerId: undefined,
+                startTouch: undefined
             }
         },
         computed: {
             selectedIndex() {
-                return this.names.indexOf(this.selected) || 0
+                let index = this.names.indexOf(this.selected)
+                return index === -1 ? 0 : index
             },
             names() {
                 return this.$children.map(vm => vm.name)
@@ -55,15 +62,44 @@
             onMouseLeave() {
                 this.playAutomatically()
             },
+            onTouchStart(e) {
+                this.pause()
+                if (!e.touches.length) {
+                    return
+                }
+                this.startTouch = e.touches[0]
+            },
+            onTouchMove() {
+
+            },
+            onTouchEnd(e) {
+                let {clientX: x1, clientY: y1} = this.startTouch
+                let {clientX: x2, clientY: y2} = e.changedTouches[0]
+
+                let distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2))
+                let deltaY = Math.abs(y2 - y1)
+                let rate = distance / deltaY
+                if (rate > 2) {
+                    if (x2 > x1) {
+                        this.select(this.selectedIndex - 1)
+                    } else {
+                        this.select(this.selectedIndex + 1)
+                    }
+                }
+                this.startTouch = undefined
+                this.$nextTick(() => {
+                    this.playAutomatically()
+                })
+            },
             updateChildren() {
                 let selected = this.getSelected()
                 this.$children.forEach((vm) => {
-                   let reverse = this.selectedIndex < this.lastSelectedIndex
-                    if(this.timerId){
-                        if(this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0){
+                    let reverse = this.selectedIndex < this.lastSelectedIndex
+                    if (!this.timerId) {
+                        if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
                             reverse = false
                         }
-                        if(this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1){
+                        if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
                             reverse = true
                         }
                     }
@@ -73,9 +109,15 @@
                     })
                 })
             },
-            select(index) {
+            select(newIndex) {
                 this.lastSelectedIndex = this.selectedIndex
-                this.$emit('update:selected', this.names[index])
+                if (newIndex === -1) {
+                    newIndex = this.names.length - 1
+                }
+                if (newIndex === this.names.length) {
+                    newIndex = 0
+                }
+                this.$emit('update:selected', this.names[newIndex])
             },
             getSelected() {
                 let first = this.$children[0]
@@ -89,12 +131,7 @@
                 let run = () => {
                     let index = this.names.indexOf(this.getSelected())
                     let newIndex = index + 1
-                    if (newIndex === -1) {
-                        newIndex = this.names.length - 1
-                    }
-                    if (newIndex === this.names.length) {
-                        newIndex = 0
-                    }
+
                     this.select(newIndex)
                     this.timerId = setTimeout(run, 3000)
                 }
@@ -126,6 +163,7 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+
             > span {
                 transition: all .5s;
                 width: 8px;
@@ -133,12 +171,13 @@
                 border-radius: 50%;
                 background: #ddd;
                 display: inline-flex;
-                box-shadow: 0 0 10px -1px rgba(0,0,0,0.75);
+                box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.75);
                 opacity: 0.5;
                 margin: 0 8px;
                 cursor: pointer;
+
                 &.active {
-                    box-shadow: 0 0 10px 2px rgba(0,0,0,0.75);
+                    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.75);
                     width: 12px;
                     height: 12px;
                 }
