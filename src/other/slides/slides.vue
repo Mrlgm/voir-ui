@@ -1,6 +1,6 @@
 <template>
-    <div class="vi-slides">
-        <div ref="window" class="vi-slides-window" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+    <div class="vi-slides" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+        <div ref="window" class="vi-slides-window">
             <div class="vi-slides-wrapper">
                 <slot></slot>
             </div>
@@ -58,7 +58,14 @@
             updateChildren() {
                 let selected = this.getSelected()
                 this.$children.forEach((vm) => {
-                    vm.reverse = this.selectedIndex < this.lastSelectedIndex
+                   let reverse = this.selectedIndex < this.lastSelectedIndex
+                    if(this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0){
+                        reverse = false
+                    }
+                    if(this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1){
+                        reverse = true
+                    }
+                    vm.reverse = reverse
                     this.$nextTick(() => {
                         vm.selected = selected
                     })
