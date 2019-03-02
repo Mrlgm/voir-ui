@@ -26,7 +26,7 @@
         },
         data() {
             return {
-                selected: '3'
+                selected: '1'
             }
         },
         mounted() {
@@ -57,6 +57,5 @@
     .box {
         height: 400px;
         background-color: #ddd;
-        border: 1px solid red;
     }
 </style>

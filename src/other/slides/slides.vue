@@ -7,7 +7,7 @@
         </div>
         <div class="vi-slides-dots">
             <span v-for="n in  childrenLength" :class="{active:selectedIndex === n - 1}" @click="select(n - 1)">
-                {{n - 1 }}
+
             </span>
         </div>
     </div>
@@ -59,11 +59,13 @@
                 let selected = this.getSelected()
                 this.$children.forEach((vm) => {
                    let reverse = this.selectedIndex < this.lastSelectedIndex
-                    if(this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0){
-                        reverse = false
-                    }
-                    if(this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1){
-                        reverse = true
+                    if(this.timerId){
+                        if(this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0){
+                            reverse = false
+                        }
+                        if(this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1){
+                            reverse = true
+                        }
                     }
                     vm.reverse = reverse
                     this.$nextTick(() => {
@@ -86,7 +88,7 @@
                 }
                 let run = () => {
                     let index = this.names.indexOf(this.getSelected())
-                    let newIndex = index - 1
+                    let newIndex = index + 1
                     if (newIndex === -1) {
                         newIndex = this.names.length - 1
                     }
@@ -109,7 +111,7 @@
 
 <style lang="scss" scoped>
     .vi-slides {
-        border: 1px solid black;
+        position: relative;
 
         &-window {
             overflow: hidden;
@@ -120,9 +122,25 @@
         }
 
         .vi-slides-dots {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             > span {
+                transition: all .5s;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #ddd;
+                display: inline-flex;
+                box-shadow: 0 0 10px -1px rgba(0,0,0,0.75);
+                opacity: 0.5;
+                margin: 0 8px;
+                cursor: pointer;
                 &.active {
-                    background-color: red;
+                    box-shadow: 0 0 10px 2px rgba(0,0,0,0.75);
+                    width: 12px;
+                    height: 12px;
                 }
             }
 
