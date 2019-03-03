@@ -11,7 +11,8 @@
             </div>
         </div>
         <div class="vi-slides-dots">
-            <span v-for="n in  childrenLength" :class="{active:selectedIndex === n - 1}" @click="select(n - 1)">
+            <span v-for="n in  childrenLength" :key="n" :data-index="n-1" :class="{active:selectedIndex === n - 1}"
+                  @click="select(n - 1)">
 
             </span>
         </div>
@@ -28,6 +29,10 @@
             autoPlay: {
                 type: Boolean,
                 default: false
+            },
+            autoPlayDelay:{
+                type:Number,
+                default: 3000
             }
         },
         data() {
@@ -46,13 +51,15 @@
             names() {
                 return this.items.map(vm => vm.name)
             },
-            items(){
-                return this.$children.filter(vm=>vm.$options.name === 'ViSlidesItem')
+            items() {
+                return this.$children.filter(vm => vm.$options.name === 'ViSlidesItem')
             }
         },
         mounted() {
             this.updateChildren()
-            this.playAutomatically()
+            if (this.autoPlay) {
+                this.playAutomatically()
+            }
             this.childrenLength = this.items.length
         },
         updated() {
@@ -135,9 +142,9 @@
                     let newIndex = index + 1
 
                     this.select(newIndex)
-                    this.timerId = setTimeout(run, 3000)
+                    this.timerId = setTimeout(run, this.autoPlayDelay)
                 }
-                this.timerId = setTimeout(run, 3000)
+                this.timerId = setTimeout(run, this.autoPlayDelay)
 
             },
             pause() {
