@@ -39,7 +39,7 @@ describe('Popover', () => {
             }
         })
         expect(wrapper.find('.content-wrapper').element).to.not.exist
-        wrapper.find('.popover').trigger('mouseenter')
+        wrapper.find('.vi-popover').trigger('mouseenter')
         expect(wrapper.find('.content-wrapper').element).to.exist
     })
 })
