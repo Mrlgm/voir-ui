@@ -2,7 +2,7 @@ import chai from 'chai'
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
 import {mount} from '@vue/test-utils'
-import Button from '@/basic/button/button';
+import Button from '../../src/basic/button/button';
 
 const expect = chai.expect;
 

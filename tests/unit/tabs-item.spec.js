@@ -2,7 +2,7 @@ import chai from 'chai'
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
 import {mount} from '@vue/test-utils'
-import TabsItem from '@/navigation/tabs/tabs-item'
+import TabsItem from '../../src/navigation/tabs/tabs-item'
 
 const expect = chai.expect;
 

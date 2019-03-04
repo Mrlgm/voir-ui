@@ -1,6 +1,6 @@
 import chai from 'chai'
 import sinonChai from 'sinon-chai'
-import TabsContent from '@/navigation/tabs/tabs-content'
+import TabsContent from '../../src/navigation/tabs/tabs-content'
 
 const expect = chai.expect;
 

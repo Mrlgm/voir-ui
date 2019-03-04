@@ -2,7 +2,7 @@ import chai from 'chai'
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
 import {mount} from '@vue/test-utils'
-import Input from '@/form/input/input'
+import Input from '../../src/form/input/input'
 
 const expect = chai.expect;
 

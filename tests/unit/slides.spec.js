@@ -3,8 +3,8 @@ import Vue from 'vue'
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
 import {mount} from '@vue/test-utils'
-import Slides from '@/other/slides/slides';
-import SlidesItem from '@/other/slides/slides-item';
+import Slides from '../../src/other/slides/slides';
+import SlidesItem from '../../src/other/slides/slides-item';
 
 const expect = chai.expect;
 

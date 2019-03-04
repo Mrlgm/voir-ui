@@ -1,8 +1,8 @@
 import chai from 'chai'
 import sinonChai from 'sinon-chai'
 import {mount} from '@vue/test-utils'
-import Row from '@/layout/grid/row'
-import Col from '@/layout/grid/col'
+import Row from '../../src/layout/grid/row'
+import Col from '../../src/layout/grid/col'
 
 const expect = chai.expect;
 
