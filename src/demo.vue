@@ -1,32 +1,28 @@
 <template>
     <div class="demo">
-        <vi-slides class="wrapper" :selected.sync="selected">
-            <vi-slides-item name="1">
-                <div class="box">1</div>
-            </vi-slides-item>
-            <vi-slides-item name="2">
-                <div class="box">2</div>
-            </vi-slides-item>
-            <vi-slides-item name="3">
-                <div class="box">3</div>
-            </vi-slides-item>
-        </vi-slides>
+        <vi-menu :selected.sync="selected" :multiple="false">
+            <vi-menu-item name="home">首页</vi-menu-item>
+            <vi-menu-item name="about">关于</vi-menu-item>
+            <vi-menu-item name="hire">招聘</vi-menu-item>
+        </vi-menu>
     </div>
 </template>
 
 <script>
-    import ViSlides from './other/slides/slides'
-    import ViSlidesItem from './other/slides/slides-item'
+    import ViMenu from './navigation/menu/menu'
+    import ViMenuItem from './navigation/menu/menu-item'
+    import ViSubmenu from './navigation/menu/submenu'
 
     export default {
         name: 'demo',
         components: {
-            ViSlides,
-            ViSlidesItem
+            ViMenu,
+            ViMenuItem,
+            ViSubmenu
         },
         data() {
             return {
-                selected: '1'
+                selected: ['home']
             }
         },
         mounted() {
@@ -40,22 +36,5 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-    }
-
-    :root {
-        --font-size: 14px;
-    }
-
-    body {
-        font-size: var(--font-size);
-    }
-
-    .wrapper {
-        margin: 40px;
-    }
-
-    .box {
-        height: 400px;
-        background-color: #ddd;
     }
 </style>
