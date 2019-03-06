@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/voir-UI/',
+    base: '/voir-ui/',
     title: 'Voir-ui',
     description: '一个好用的UI框架',
     markdown: {
@@ -16,7 +16,7 @@ module.exports = {
             },
             {
                 text: '仓库',
-                link: 'https://github.com/Mrlgm/voir-UI'
+                link: 'https://github.com/Mrlgm/voir-ui'
             },
             // {
             //     text: '交流',
@@ -42,6 +42,7 @@ module.exports = {
             },
             {
                 title: '组件',
+                collapsable: false,
                 children: [
                     '/components/basic',
                     '/components/form',
