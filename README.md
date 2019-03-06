@@ -1,10 +1,13 @@
 # voir-ui，一个Vue UI组件
 
-[![Build Status](https://travis-ci.org/Mrlgm/voir-UI.svg?branch=master)](https://travis-ci.org/Mrlgm/voir-UI)
+[![Build Status](https://travis-ci.org/Mrlgm/voir-ui.svg?branch=master)](https://travis-ci.org/Mrlgm/voir-ui)
 
 ## 介绍
 
-这是我在学习 vue 过程中做的一个 UI 框架，希望对你有用
+[官方文档](https://mrlgm.github.io/voir-ui/ '官方文档') 
+
+这是我在学习 vue 过程中做的一个 UI 框架，希望对你有用，目前实现的轮子并不多，但是比较简单，
+您可以通过阅读源码来理解设计思路，如果有疑问欢迎提[issue](https://github.com/Mrlgm/voir-ui/issues)
 
 ## 开始使用
 
@@ -21,26 +24,13 @@
     ```
 3. 引入
     ```
-    import {Button, ButtonGroup, Icon} from 'voir-ui'
-    import 'voir-ui/dist/index.css'
-
-    export default {
-      name: 'app',
-      components: {
-        HelloWorld,
-        'vi-button': Button,
-        'vi-icon': Icon
-      }
-    }
+    import Vue from 'vue'
+    import VoirUI from 'voir-ui'
+    
+    Vue.use(VoirUI)
     ```
-
-## 文档
-
-## 提问
-
-## 变更记录
-
+    
 ## 联系方式
 
-## 贡献代码
+邮箱：<mr.lgmlovehxn@gmail.com>
 
