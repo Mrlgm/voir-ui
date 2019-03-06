@@ -1,15 +1,15 @@
-import ViLayout from './layout'
-import ViHeader from './header'
-import ViContent from './content'
-import ViSider from './sider'
-import ViFooter from './footer'
+import Layout from './layout'
+import Header from './header'
+import Content from './content'
+import Sider from './sider'
+import Footer from './footer'
 
-ViLayout.install = Vue => {
-    Vue.component(ViLayout.name, ViLayout)
-    Vue.component(ViHeader.name, ViHeader)
-    Vue.component(ViContent.name, ViContent)
-    Vue.component(ViSider.name, ViSider)
-    Vue.component(ViFooter.name, ViFooter)
+Layout.install = Vue => {
+    Vue.component(Layout.name, Layout)
+    Vue.component(Header.name, Header)
+    Vue.component(Content.name, Content)
+    Vue.component(Sider.name, Sider)
+    Vue.component(Footer.name, Footer)
 }
 
-export default ViLayout
+export default Layout

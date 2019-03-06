@@ -1,5 +1,5 @@
-import ViButton from './button.vue'
+import Button from './button.vue'
 
-ViButton.install = Vue => Vue.component(ViButton.name, ViButton)
+Button.install = Vue => Vue.component(Button.name, Button)
 
-export default ViButton
+export default Button

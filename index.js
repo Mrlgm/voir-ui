@@ -22,7 +22,6 @@ const components = [
     Container,
     Collapse,
     Tabs,
-    Toast,
     Popover
 ]
 
@@ -30,5 +29,6 @@ const install = Vue => {
     components.forEach(component => {
         component.install(Vue)
     })
+    Vue.use(Toast)
 }
 export default {install}

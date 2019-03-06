@@ -1,8 +1,8 @@
-import ViInput from './src/input';
+import Input from './input';
 
 /* istanbul ignore next */
-ViInput.install = function(Vue) {
-    Vue.component(ViInput.name, ViInput);
+Input.install = function(Vue) {
+    Vue.component(Input.name, Input);
 };
 
-export default ViInput;
+export default Input;

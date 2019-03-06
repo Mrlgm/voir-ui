@@ -1,6 +1,6 @@
 {
   "name": "voir-ui",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "一个基于vue的UI框架",
   "scripts": {
     "serve": "vue-cli-service serve",

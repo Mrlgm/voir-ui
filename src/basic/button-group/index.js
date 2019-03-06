@@ -1,8 +1,8 @@
-import ViButtonGroup from './button-group';
+import ButtonGroup from './button-group';
 
 /* istanbul ignore next */
-ViButtonGroup.install = function(Vue) {
-    Vue.component(ViButtonGroup.name, ViButtonGroup);
+ButtonGroup.install = function(Vue) {
+    Vue.component(ButtonGroup.name, ButtonGroup);
 };
 
-export default ViButtonGroup;
+export default ButtonGroup;

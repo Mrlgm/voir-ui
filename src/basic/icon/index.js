@@ -1,8 +1,8 @@
-import ViIcon from './icon.vue';
+import Icon from './icon.vue';
 
 /* istanbul ignore next */
-ViIcon.install = function(Vue) {
-    Vue.component(ViIcon.name, ViIcon);
+Icon.install = function(Vue) {
+    Vue.component(Icon.name, Icon);
 };
 
-export default ViIcon;
+export default Icon;

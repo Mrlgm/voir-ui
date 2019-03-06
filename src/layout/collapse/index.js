@@ -1,10 +1,10 @@
-import ViCollapse from './collapse';
-import ViCollapseItem from './collapse-item';
+import Collapse from './collapse';
+import CollapseItem from './collapse-item';
 
 /* istanbul ignore next */
-ViCollapse.install = function(Vue) {
-    Vue.component(ViCollapse.name, ViCollapse);
-    Vue.component(ViCollapseItem.name, ViCollapseItem);
+Collapse.install = function(Vue) {
+    Vue.component(Collapse.name, Collapse);
+    Vue.component(CollapseItem.name, CollapseItem);
 };
 
-export default ViCollapse;
+export default Collapse;
