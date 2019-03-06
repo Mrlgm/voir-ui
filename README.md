@@ -1,7 +1,6 @@
-# voir-ui，一个Vue UI组件
+# voir-ui，一个Vue UI组件库
 
-[![Build Status](https://travis-ci.org/Mrlgm/voir-ui.svg?branch=master)](https://travis-ci.org/Mrlgm/voir-ui)
-
+[![Build Status](https://travis-ci.org/Mrlgm/voir-ui.svg?branch=master)](https://travis-ci.org/Mrlgm/voir-ui) ![NPM](https://img.shields.io/npm/l/voir-ui.svg)
 ## 介绍
 
 [官方文档](https://mrlgm.github.io/voir-ui/ '官方文档') 
