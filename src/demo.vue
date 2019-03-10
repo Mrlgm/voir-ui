@@ -2,7 +2,12 @@
     <div class="demo">
         <vi-menu :selected.sync="selected" :multiple="false">
             <vi-menu-item name="home">首页</vi-menu-item>
-            <vi-menu-item name="about">关于</vi-menu-item>
+            <vi-submenu>
+                <template slot="title">关于</template>
+                <vi-menu-item name="culture">企业文化</vi-menu-item>
+                <vi-menu-item name="developers">开发团队</vi-menu-item>
+                <vi-menu-item name="contacts">联系电话</vi-menu-item>
+            </vi-submenu>
             <vi-menu-item name="hire">招聘</vi-menu-item>
         </vi-menu>
     </div>
@@ -22,7 +27,7 @@
         },
         data() {
             return {
-                selected: ['home']
+                selected: ['culture']
             }
         },
         mounted() {

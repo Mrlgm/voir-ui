@@ -7,6 +7,11 @@
 <script>
     export default {
         name: "ViMenu",
+        provide() {
+            return {
+                root: this
+            }
+        },
         props: {
             selected: {
                 type: Array,
@@ -15,6 +20,11 @@
             multiple: {
                 type: Boolean,
                 default: false
+            }
+        },
+        data() {
+            return {
+                items: []
             }
         },
         mounted() {
@@ -26,11 +36,11 @@
             this.updateChildren()
         },
         computed: {
-            items() {
-                return this.$children.filter((vm) => vm.$options.name === 'ViMenuItem')
-            }
         },
         methods: {
+            addItem(vm) {
+                this.items.push(vm)
+            },
             updateChildren() {
                 this.items.forEach((vm) => {
                     vm.selected = this.selected.indexOf(vm.name) >= 0;

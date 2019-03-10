@@ -7,6 +7,7 @@
 <script>
     export default {
         name: "ViMenuItem",
+        inject: ['root'],
         props: {
             name: {
                 type: String,
@@ -18,9 +19,12 @@
                 selected: false
             }
         },
+        created() {
+            this.root.addItem(this)
+        },
         methods: {
             onClick() {
-                this.$emit('add:selected',this.name)
+                this.$emit('add:selected', this.name)
             }
         }
     }
