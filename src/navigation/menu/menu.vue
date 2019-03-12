@@ -34,8 +34,7 @@
         updated() {
             this.updateChildren()
         },
-        computed: {
-        },
+        computed: {},
         methods: {
             addItem(vm) {
                 this.items.push(vm)
@@ -65,8 +64,11 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "../../assets/_var";
+
     .vi-menu {
         display: flex;
-        border: 1px solid red;
+        border-bottom: 1px solid $grey;
+        cursor: default;
     }
 </style>
