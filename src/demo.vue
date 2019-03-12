@@ -7,6 +7,12 @@
                 <vi-menu-item name="culture">企业文化</vi-menu-item>
                 <vi-menu-item name="developers">开发团队</vi-menu-item>
                 <vi-menu-item name="contacts">联系电话</vi-menu-item>
+                <vi-submenu>
+                    <template slot="title">联系方式</template>
+                    <vi-menu-item name="wechat">微信</vi-menu-item>
+                    <vi-menu-item name="qq">QQ</vi-menu-item>
+                    <vi-menu-item name="phone">电话</vi-menu-item>
+                </vi-submenu>
             </vi-submenu>
             <vi-menu-item name="hire">招聘</vi-menu-item>
         </vi-menu>

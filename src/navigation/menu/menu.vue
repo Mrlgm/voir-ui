@@ -28,7 +28,6 @@
             }
         },
         mounted() {
-            console.log(this.items);
             this.updateChildren()
             this.listenToChildren()
         },

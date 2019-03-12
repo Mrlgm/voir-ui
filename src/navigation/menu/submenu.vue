@@ -1,7 +1,9 @@
 <template>
     <div class="vi-submenu">
-        <slot name="title"></slot>
-        <div class="vi-submenu-popover">
+        <span @click="onClick">
+             <slot name="title"></slot>
+        </span>
+        <div class="vi-submenu-popover" v-show="open">
             <slot></slot>
         </div>
     </div>
@@ -18,12 +20,13 @@
         },
         data() {
             return {
-                selected: false
+                selected: false,
+                open: false
             }
         },
         methods: {
             onClick() {
-                this.$emit('add:selected', this.name)
+                this.open = !this.open
             }
         }
     }
@@ -32,7 +35,11 @@
 <style lang="scss" scoped>
     .vi-submenu {
         position: relative;
-        padding: 10px 20px;
+
+        >span{
+            padding: 10px 20px;
+            display: block;
+        }
 
         &-popover {
             position: absolute;
@@ -41,5 +48,11 @@
             border: 1px solid black;
             white-space: nowrap;
         }
+    }
+
+    .vi-submenu .vi-submenu .vi-submenu-popover{
+
+        top: 0;
+        left: 100%;
     }
 </style>
