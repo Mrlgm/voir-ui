@@ -2,12 +2,12 @@
     <div class="demo">
         <vi-menu :selected.sync="selected" :multiple="false">
             <vi-menu-item name="home">首页</vi-menu-item>
-            <vi-submenu>
+            <vi-submenu name="about">
                 <template slot="title">关于</template>
                 <vi-menu-item name="culture">企业文化</vi-menu-item>
                 <vi-menu-item name="developers">开发团队</vi-menu-item>
                 <vi-menu-item name="contacts">联系电话</vi-menu-item>
-                <vi-submenu>
+                <vi-submenu name="contact">
                     <template slot="title">联系方式</template>
                     <vi-menu-item name="wechat">微信</vi-menu-item>
                     <vi-menu-item name="qq">QQ</vi-menu-item>

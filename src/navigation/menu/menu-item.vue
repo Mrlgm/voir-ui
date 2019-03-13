@@ -24,6 +24,8 @@
         },
         methods: {
             onClick() {
+                this.root.namePath = []
+                this.$parent.updateNamePath && this.$parent.updateNamePath()
                 this.$emit('add:selected', this.name)
             }
         }
@@ -51,7 +53,6 @@
     }
 
     .vi-submenu .vi-menu-item {
-
 
 
         &.selected {

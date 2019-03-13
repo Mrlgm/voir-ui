@@ -1,5 +1,5 @@
 <template>
-    <div class="vi-submenu">
+    <div class="vi-submenu" :class="{active}" v-click-outside="close">
         <span @click="onClick">
              <slot name="title"></slot>
         </span>
@@ -10,23 +10,40 @@
 </template>
 
 <script>
+    import ClickOutside from './click-outside'
+
     export default {
         name: "ViSubmenu",
+        directives: {ClickOutside},
+        inject: ['root'],
         props: {
             name: {
                 type: String,
-
+                required: true
             }
         },
         data() {
             return {
-                selected: false,
                 open: false
+            }
+        },
+        computed: {
+            active() {
+                return this.root.namePath.indexOf(this.name) >= 0
             }
         },
         methods: {
             onClick() {
                 this.open = !this.open
+            },
+            updateNamePath() {
+                this.root.namePath.unshift(this.name)
+                if (this.$parent.updateNamePath) {
+                    this.$parent.updateNamePath()
+                }
+            },
+            close() {
+                this.open = false
             }
         }
     }
@@ -37,6 +54,18 @@
 
     .vi-submenu {
         position: relative;
+
+        &.active {
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                border-bottom: 2px solid $blue;
+            }
+        }
 
         > span {
             padding: 10px 20px;
