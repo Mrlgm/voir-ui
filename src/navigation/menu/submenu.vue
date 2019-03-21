@@ -1,7 +1,10 @@
 <template>
     <div class="vi-submenu" :class="{active}" v-click-outside="close">
-        <span @click="onClick">
+        <span class="vi-submenu-label" @click="onClick">
              <slot name="title"></slot>
+            <span class="vi-submenu-icon" :class="{open}">
+                <vi-icon  name="right"></vi-icon>
+            </span>
         </span>
         <div class="vi-submenu-popover" v-show="open">
             <slot></slot>
@@ -11,9 +14,11 @@
 
 <script>
     import ClickOutside from './click-outside'
+    import ViIcon from '../../basic/icon/icon'
 
     export default {
         name: "ViSubmenu",
+        components: {ViIcon},
         directives: {ClickOutside},
         inject: ['root'],
         props: {
@@ -67,9 +72,14 @@
             }
         }
 
-        > span {
+
+        &-label {
             padding: 10px 20px;
             display: block;
+        }
+
+        &-icon {
+            display: none;
         }
 
         &-popover {
@@ -87,9 +97,39 @@
         }
     }
 
-    .vi-submenu .vi-submenu .vi-submenu-popover {
-        top: 0;
-        left: 100%;
-        margin-left: 4px;
+    .vi-submenu .vi-submenu {
+        &.active {
+            &::after {
+                display: none;
+            }
+        }
+
+        .vi-submenu-popover {
+            top: 0;
+            left: 100%;
+            margin-left: 8px;
+        }
+
+        .vi-submenu-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .vi-submenu-icon {
+            display: inline-flex;
+            margin-left: 1em;
+
+            svg {
+                fill: $light-color;
+            }
+
+            transition: transform .25s;
+
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
+
     }
 </style>
