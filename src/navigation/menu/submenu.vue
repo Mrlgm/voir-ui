@@ -3,12 +3,14 @@
         <span class="vi-submenu-label" @click="onClick">
              <slot name="title"></slot>
             <span class="vi-submenu-icon" :class="{open}">
-                <vi-icon  name="right"></vi-icon>
+                <vi-icon name="right"></vi-icon>
             </span>
         </span>
-        <div class="vi-submenu-popover" v-show="open">
-            <slot></slot>
-        </div>
+        <transition @enter="enter" @leave="leave" >
+            <div class="vi-submenu-popover" v-show="open" :class="{vertical}">
+                <slot></slot>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -20,7 +22,7 @@
         name: "ViSubmenu",
         components: {ViIcon},
         directives: {ClickOutside},
-        inject: ['root'],
+        inject: ['root', 'vertical'],
         props: {
             name: {
                 type: String,
@@ -49,7 +51,16 @@
             },
             close() {
                 this.open = false
-            }
+            },
+            enter(el, done) {
+                let {height} = el.getBoundingClientRect()
+                el.style.height = `${height}px`
+                done()
+            },
+            leave: function (el, done) {
+                el.style.height = '0'
+                done()
+            },
         }
     }
 </script>
@@ -94,6 +105,13 @@
             white-space: nowrap;
             box-shadow: 0 0 3px $grey;
             border-radius: $border-radius;
+
+            &.vertical {
+                position: static;
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+            }
         }
     }
 

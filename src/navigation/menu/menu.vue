@@ -1,5 +1,5 @@
 <template>
-    <div class="vi-menu">
+    <div class="vi-menu" :class="{vertical}">
         <slot></slot>
     </div>
 </template>
@@ -9,7 +9,8 @@
         name: "ViMenu",
         provide() {
             return {
-                root: this
+                root: this,
+                vertical: this.vertical
             }
         },
         props: {
@@ -20,12 +21,16 @@
             multiple: {
                 type: Boolean,
                 default: false
+            },
+            vertical: {
+                type: Boolean,
+                default: false
             }
         },
         data() {
             return {
                 items: [],
-                namePath:[]
+                namePath: []
             }
         },
         mounted() {
@@ -71,5 +76,10 @@
         display: flex;
         border-bottom: 1px solid $grey;
         cursor: default;
+
+        &.vertical {
+            flex-direction: column;
+            border: 1px solid $grey;
+        }
     }
 </style>

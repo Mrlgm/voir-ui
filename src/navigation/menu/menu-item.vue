@@ -53,8 +53,6 @@
     }
 
     .vi-submenu .vi-menu-item {
-
-
         &.selected {
             background-color: $grey;
             color: #000;

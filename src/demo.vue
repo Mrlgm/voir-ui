@@ -1,6 +1,6 @@
 <template>
     <div class="demo">
-        <vi-menu :selected.sync="selected" :multiple="false">
+        <vi-menu :selected.sync="selected" :multiple="false" vertical style="width: 200px; margin: 20px;">
             <vi-menu-item name="home">首页</vi-menu-item>
             <vi-submenu name="about">
                 <template slot="title">关于</template>
