@@ -6,11 +6,18 @@
                 <vi-icon name="right"></vi-icon>
             </span>
         </span>
-        <transition @enter="enter" @leave="leave" >
+        <template v-if="vertical">
+            <transition @after-enter="afterEnter" @enter="enter" @leave="leave" @after-leave="afterLeave">
+                <div class="vi-submenu-popover" v-show="open" :class="{vertical}">
+                    <slot></slot>
+                </div>
+            </transition>
+        </template>
+        <template v-else>
             <div class="vi-submenu-popover" v-show="open" :class="{vertical}">
                 <slot></slot>
             </div>
-        </transition>
+        </template>
     </div>
 </template>
 
