@@ -1,8 +1,8 @@
 <template>
-    <div class="vi-submenu" :class="{active}" v-click-outside="close">
+    <div class="vi-submenu" :class="{active,vertical}" v-click-outside="close">
         <span class="vi-submenu-label" @click="onClick">
              <slot name="title"></slot>
-            <span class="vi-submenu-icon" :class="{open}">
+            <span class="vi-submenu-icon" :class="{open,vertical}">
                 <vi-icon name="right"></vi-icon>
             </span>
         </span>
@@ -94,15 +94,17 @@
     .vi-submenu {
         position: relative;
 
-        &.active {
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                border-bottom: 2px solid $blue;
+        &:not(.vertical) {
+            &.active {
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    border-bottom: 2px solid $blue;
+                }
             }
         }
 
@@ -162,12 +164,20 @@
         .vi-submenu-icon {
             display: inline-flex;
             margin-left: 1em;
+            transition: transform .25s;
 
             svg {
                 fill: $light-color;
             }
 
-            transition: transform .25s;
+            &.vertical {
+                transform: rotate(90deg);
+
+                &.open {
+                    transform: rotate(270deg);
+                }
+            }
+
 
             &.open {
                 transform: rotate(180deg);

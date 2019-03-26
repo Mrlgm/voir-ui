@@ -1,5 +1,5 @@
 <template>
-    <div class="vi-menu-item" :class="{selected}" @click="onClick">
+    <div class="vi-menu-item" :class="{selected,vertical}" @click="onClick">
         <slot></slot>
     </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
     export default {
         name: "ViMenuItem",
-        inject: ['root'],
+        inject: ['root', 'vertical'],
         props: {
             name: {
                 type: String,
@@ -39,20 +39,34 @@
         padding: 10px 20px;
         position: relative;
 
-        &.selected {
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                border-bottom: 2px solid $blue;
+        &:not(.vertical) {
+            &.selected {
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    border-bottom: 2px solid $blue;
+                }
             }
         }
+
+        &.vertical {
+            &.selected {
+                color: $blue;
+            }
+        }
+
     }
 
-    .vi-submenu .vi-menu-item {
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .vi-submenu .vi-menu-item:not(.vertical) {
         &.selected {
             background-color: $grey;
             color: #000;
