@@ -16,6 +16,7 @@
             </vi-submenu>
             <vi-menu-item name="hire">招聘</vi-menu-item>
         </vi-menu>
+        {{selected}}
     </div>
 </template>
 
@@ -32,7 +33,7 @@
         },
         data() {
             return {
-                selected: ['culture']
+                selected: 'culture'
             }
         }
     }
@@ -41,7 +42,7 @@
 <style lang="scss" scoped>
     .demo {
         margin-top: 10px;
-        padding: 10px 10px 0;
+        padding: 10px;
         border: 1px solid #ddd;
         display: flex;
         flex-direction: column;
