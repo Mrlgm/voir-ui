@@ -1,12 +1,13 @@
 {
   "name": "voir-ui",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "一个基于vue的UI框架",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:karma": "karma start --single-run",
-    "test:unit": "vue-cli-service test:unit --watch",
+    "test:unit": "karma start",
+    "test:unit:old": "vue-cli-service test:unit --watch",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },

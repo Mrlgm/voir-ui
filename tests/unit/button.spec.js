@@ -39,19 +39,21 @@ describe('Button', () => {
         })
         expect(wrapper.classes()).to.includes('ripple')
     })
-    xit('icon 默认的 order 是 1', () => {
+    it('icon 默认的 order 是 1', () => {
         const wrapper = mount(Button, {
-            attachedToDocument:true,
+            attachToDocument: true,
             propsData: {
                 icon: 'settings',
             }
         })
         const vm = wrapper.vm
         const icon = vm.$el.querySelector('svg')
+        console.log(getComputedStyle(icon))
         expect(getComputedStyle(icon).order).to.eq('1')
     })
-    xit('设置 iconPosition 可以改变 order', () => {
+    it('设置 iconPosition 可以改变 order', () => {
         const wrapper = mount(Button, {
+            attachToDocument: true,
             propsData: {
                 icon: 'settings',
                 iconPosition: 'right'
