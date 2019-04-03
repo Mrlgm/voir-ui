@@ -48,7 +48,6 @@ describe('Button', () => {
         })
         const vm = wrapper.vm
         const icon = vm.$el.querySelector('svg')
-        console.log(getComputedStyle(icon))
         expect(getComputedStyle(icon).order).to.eq('1')
     })
     it('设置 iconPosition 可以改变 order', () => {

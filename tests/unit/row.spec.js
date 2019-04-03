@@ -3,6 +3,7 @@ import sinonChai from 'sinon-chai'
 import {mount} from '@vue/test-utils'
 import Row from '../../src/layout/grid/row'
 import Col from '../../src/layout/grid/col'
+import Vue from 'vue'
 
 const expect = chai.expect;
 
@@ -14,33 +15,33 @@ describe('Row', () => {
     it('存在.', () => {
         expect(Row).to.exist
     })
-    xit('接收 gutter 属性', () => {
+
+    it('接收 gutter 属性', (done) => {
         Vue.component('vi-row', Row)
         Vue.component('vi-col', Col)
-        const div = document.createElement('div')
-        document.body.appendChild(div)
-        div.innerHTML = `
-        <vi-row gutter="20">
-            <vi-col span="12"></vi-col>
-            <vi-col span="12"></vi-col>
-        </vi-row>
-        `
-        const vm = new Vue({
-            el: div
+        const wrapper = mount(Row, {
+            attachToDocument: true,
+            propsData: {
+                gutter: "20"
+            },
+            slots: {
+                default: ['<vi-col span="12"></vi-col>', '<vi-col span="12"></vi-col>']
+            }
         })
         setTimeout(() => {
-            const row = vm.$el.querySelector('.row')
-            expect(getComputedStyle(row).marginRight).to.eq('-10px')
-            expect(getComputedStyle(row).marginLeft).to.eq('-10px')
-            const cols = vm.$el.querySelectorAll('.col')
-            expect(getComputedStyle(cols[0]).paddingRight).to.eq('10px')
-            expect(getComputedStyle(cols[1]).paddingLeft).to.eq('10px')
+            const row = wrapper.find('.row')
+            const col1 = wrapper.findAll('.col').at(0)
+            const col2 = wrapper.findAll('.col').at(1)
+            expect(getComputedStyle(row.vm.$el).marginRight).to.eq('-10px')
+            expect(getComputedStyle(row.vm.$el).marginLeft).to.eq('-10px')
+            expect(getComputedStyle(col1.vm.$el).paddingRight).to.eq('10px')
+            expect(getComputedStyle(col2.vm.$el).paddingLeft).to.eq('10px')
             done()
-            vm.$el.remove()
-            vm.$destroy()
         })
+
     })
-    xit('接收 align 属性', () => {
+
+    it('接收 align 属性', () => {
         const div = document.createElement('div')
         document.body.appendChild(div)
         const Constructor = Vue.extend(Row)
