@@ -39,7 +39,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .demo {
         margin-top: 10px;
         padding: 10px;
@@ -47,5 +47,9 @@
         display: flex;
         flex-direction: column;
         border-radius: 4px;
+
+        .vi-submenu-popover {
+            z-index: 2;
+        }
     }
 </style>

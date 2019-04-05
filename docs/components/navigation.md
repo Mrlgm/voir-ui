@@ -97,6 +97,16 @@ title: Navigation
 
 ### Attributes
 
+#### vi-menu Attributes
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| ------- | ------ | ------ | :------: | :------: |
+| selected | 默认被选则的一项 | String | -- | -- |
+| vertical | 是否显示垂直状态 | Boolean | true/false | false |
+
+#### vi-submenu/vi-menu-item Attributes
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| ------- | ------ | ------ | :------: | :------: |
+| name | 某一项的标记名称 | String | -- | -- |
 
 <ClientOnly>
 <box-sizing></box-sizing>
