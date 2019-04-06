@@ -1,6 +1,6 @@
 <template>
     <div class="demo">
-        <vi-menu :selected.sync="selected" :multiple="false" vertical style="margin: 20px">
+        <vi-menu :selected.sync="selected" :multiple="false" vertical style="margin-bottom: 10px;width: 200px" >
             <vi-menu-item name="home">首页</vi-menu-item>
             <vi-submenu name="about">
                 <template slot="title">关于</template>
@@ -20,8 +20,21 @@
 </template>
 
 <script>
+    import ViMenu from '../../../src/navigation/menu/menu'
+    import ViMenuItem from '../../../src/navigation/menu/menu-item'
+    import ViSubmenu from '../../../src/navigation/menu/submenu'
+
     export default {
-        name: "menu-demo-2"
+        components: {
+            ViMenu,
+            ViMenuItem,
+            ViSubmenu
+        },
+        data() {
+            return {
+                selected: 'culture'
+            }
+        }
     }
 </script>
 

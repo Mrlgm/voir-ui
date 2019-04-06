@@ -2,7 +2,7 @@
     <div class="demo">
         <vi-menu :selected.sync="selected" :multiple="false">
             <vi-menu-item name="home">首页</vi-menu-item>
-            <vi-submenu name="about">
+            <vi-submenu style="z-index: 2;" name="about">
                 <template slot="title">关于</template>
                 <vi-menu-item name="culture">企业文化</vi-menu-item>
                 <vi-menu-item name="developers">开发团队</vi-menu-item>
@@ -39,7 +39,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .demo {
         margin-top: 10px;
         padding: 10px;
@@ -48,8 +48,5 @@
         flex-direction: column;
         border-radius: 4px;
 
-        .vi-submenu-popover {
-            z-index: 2;
-        }
     }
 </style>
