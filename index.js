@@ -10,6 +10,7 @@ import Collapse from './src/layout/collapse/index.js'
 import Tabs from './src/navigation/tabs/index.js'
 import Toast from './src/notice/toast/plugin'
 import Popover from './src/other/popover/index'
+import Menu from './src/navigation/menu/index'
 
 const components = [
     Icon,
@@ -22,6 +23,7 @@ const components = [
     Container,
     Collapse,
     Tabs,
+    Menu,
     Popover
 ]
 
